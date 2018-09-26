@@ -72,12 +72,14 @@ int replace(vector<string>& strings, const string& old, const string& new_val)
 int is_prime(int n)
 {
 	bool torf = true; //initialized to true, if not true value will be changed in due time, if not changed it's a prime
-	int counter = 3;  //initialize after 3 because the first condition on if loop takes care 
+	int counter = 3;  //initialize after 3 because the first two conditions on if loop takes care 
 	auto remainder = -99; //initialized to quasirandom value so that while loop below run 
 
 
 
-	if ((n == 1) || (n == 2) || (n == 3)) //takes care of first 3 positive integers
+	if (n == 1) //takes care of 1, as it is not a prime number
+		torf = false;
+	else if ((n == 2) || (n == 3)) //takes care of 2 and 3 positive integers
 		torf = true;
 	else if ((n % 2) == 0)   //takes care of all even numbers
 		torf = false;
