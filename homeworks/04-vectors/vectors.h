@@ -3,6 +3,15 @@
 
 using std::vector; using std::string;
 
+
+int get_max_from_vector(vector<int>& numbers);
+int sum_of_squares(vector<int>& numbers);
+int replace(vector<string>& strings, const string& old, const string& new_bal);
+int is_prime(int n);
+vector<int> vector_of_primes(int num);
+
+
+
 /*
 Write a value return function with a vector of ints list reference parameter
 that returns the maximum value of the list
@@ -11,7 +20,7 @@ that returns the maximum value of the list
 @return the max value in the vector
 
 */
-int get_max_from_vector(vector<int>& numbers);
+//int get_max_from_vector(vector<int>& numbers);
 
 /*
 Write a value function sum_of_squares with a vector of ints list reference parameter
@@ -37,7 +46,7 @@ string in a vector of strings
 @param new_val reference to a string read only
 
 */
-void replace(vector<string>& strings, const string& old, const string& new_val);
+//void replace(vector<string>& strings, const string& old, const string& new_val);
 
 
 /*
