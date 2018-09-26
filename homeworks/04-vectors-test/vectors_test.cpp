@@ -9,8 +9,11 @@
 
 TEST_CASE("Test get_max_from_vector")
 {
-	REQUIRE(get_max_from_vector(4, 5, 1, 50, 6, 77, 0) == 77);
-	REQUIRE(get_max_from_vector(99, 1000, 10, 500, 66, 770, 10) == 1000);
+	vector<int> numbers{ 4, 5, 1, 50, 6, 77, 0 };
+	REQUIRE(get_max_from_vector(numbers) == 77);
+
+	vector<int> numbers2{ 99, 1000, 10, 500, 66, 770, 10 };
+	REQUIRE(get_max_from_vector(numbers2) == 1000);
 }
 
 
@@ -20,8 +23,11 @@ TEST_CASE("Test get_max_from_vector")
 
 TEST_CASE("Test sum_of_squares")
 {
-	REQUIRE(sum_of_squares(2, 3, 4) == 29);
-	REQUIRE(sum_of_squares(2, 3, 4, 5) == 54);
+	vector<int> numeros{ 2, 3, 4 };
+	REQUIRE(sum_of_squares(numeros) == 29);
+
+	vector<int> numeros2{ 2,3,4,5 };
+	REQUIRE(sum_of_squares(numeros2) == 54);
 }
 
 
@@ -87,10 +93,10 @@ TEST_CASE("Test vector of primes")
 	}
 	
 	vector<int> primes_up_to_50{ 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47 };
-	vector<int> primes = vector_of_primes(50);
+	primes = vector_of_primes(50);
 	REQUIRE(primes_up_to_10.size() == primes.size());
 
-	bool are_prime = true; //assume all vector ints are prime 
+	are_prime = true; //assume all vector ints are prime 
 
 	for (std::size_t i = 0; i < primes_up_to_50.size(); ++i)
 	{
