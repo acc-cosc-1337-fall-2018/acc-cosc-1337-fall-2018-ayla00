@@ -49,8 +49,7 @@ int replace(vector<string>& strings, const string& old, const string& new_val)
 {
 	auto size = strings.size();
 	int s = 0;
-	string temporary = "a"; //initialize with random letter
-	while (s < (size - 1))
+	while (s < size)
 	{
 		if (strings[s] == old)
 		{
@@ -108,24 +107,18 @@ vector<int> vector_of_primes(int num)
 {
 	int primenum = 1; //initialize variable which will populate primes vector
 	vector<int> primes; //declare and initialize vector
-	int c = 0;
 
-
-	while (c <= num)
+	while (primenum <= num)
 	{
 		bool isprime = is_prime(primenum);
 
 		if (isprime == true)
 		{
 			primes.push_back(primenum);
-			c = c + 1;
 			primenum = primenum + 1;
 		}
 		else
-		{
 			primenum = primenum + 1;
-			c = c + 1;
-		}
 
 	}
 

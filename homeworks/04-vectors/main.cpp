@@ -12,13 +12,13 @@ int main()
 	vector<int> numbers{ 4, 5, 1, 50, 60, 77, 0 };  //input for get_max_from_vector
 
 	int maxnum = get_max_from_vector(numbers);
-	cout << "the maximum number the vector is: " << maxnum << endl;
+	cout << "the maximum number the vector is: " << maxnum << endl << endl;
 
 
 	vector<int> numeros{ 2, 3, 4 }; //input for sum_of_squares
 
 	int suma = sum_of_squares(numeros);
-	cout << "the sum of squares is: " << suma << endl;
+	cout << "the sum of squares is: " << suma << endl << endl;
 
 	vector<string> strings{ "Joe", "joe", "mary" };
 	const string& old = "joe";
@@ -26,20 +26,28 @@ int main()
 
 
 	int z = replace(strings, old, new_val);
-	cout << "old argument: " << old << " replaced by: " << strings[z] << endl;
-	//string[z] is where the previous value of old was located
+	int k = 0;
+	auto strsize = strings.size();
+	cout << "old argument: " << old << " replaced by: " << strings[z] << endl << endl;
+	//string[z] is where the last value of old was located before function was called
+
+	while (k < strsize)
+	{
+		cout << "strings[" << k << "] is: " << strings[k] << endl;
+		k = k + 1;
+	}
 
 
 	int n = 3; // input for is_prime
 	bool prime = is_prime(n);
 
 	if (prime == true) // choosing the output on screen according to is_prime outcome
-		cout << "the number " << n << " is a prime number" << endl;
+		cout << "the number " << n << " is a prime number" << endl << endl;
 	else
-		cout << "the number " << n << " is NOT a prime number" << endl;
+		cout << "the number " << n << " is NOT a prime number" << endl << endl;
 
 
-	int num = 13;
+	int num = 50;
 	vector<int> primes = vector_of_primes(num);
 	int w = 0;
 	cout << "the vector for the primes numbers from 1 to " << num << " is :" << endl;
