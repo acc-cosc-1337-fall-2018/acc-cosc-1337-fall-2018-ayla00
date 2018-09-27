@@ -94,7 +94,7 @@ TEST_CASE("Test vector of primes")
 	
 	vector<int> primes_up_to_50{ 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47 };
 	primes = vector_of_primes(50);
-	REQUIRE(primes_up_to_10.size() == primes.size());
+	REQUIRE(primes_up_to_50.size() == primes.size());
 
 	are_prime = true; //assume all vector ints are prime 
 
