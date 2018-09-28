@@ -12,3 +12,4 @@ private:
 	double cost;
 	int units;
 };
+#endif // INVOICE_DETAIL_H
