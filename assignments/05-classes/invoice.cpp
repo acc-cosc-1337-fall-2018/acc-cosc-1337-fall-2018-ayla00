@@ -8,7 +8,7 @@ void Invoice::add_invoice_detail(InvoiceDetail detail)
 
 }
 
-double  get_total(vector<InvoiceDetail> invoice_details)
+double  Invoice::get_total()
 {
 	double total{ 0 };
 
@@ -16,5 +16,5 @@ double  get_total(vector<InvoiceDetail> invoice_details)
 	{
 		total += detail.get_extended_cost();
 	}
-
+ return total;
 }
