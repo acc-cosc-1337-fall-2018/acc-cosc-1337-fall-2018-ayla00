@@ -4,9 +4,10 @@
 class InvoiceDetail
 {
 public:
+
 	InvoiceDetail(double c, int u ): cost(c), units(u) {}
 	double get_extended_cost();
-
+	InvoiceDetail() {};
 
 private:
 	double cost;
