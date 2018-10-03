@@ -14,4 +14,4 @@ public:
 private:
 	std::vector<InvoiceDetail>  invoice_details;
 };
-#endif INVOICE_H
+#endif //INVOICE_H
