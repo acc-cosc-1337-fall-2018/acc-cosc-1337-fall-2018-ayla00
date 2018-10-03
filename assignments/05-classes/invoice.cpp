@@ -1,4 +1,4 @@
-#include "invoice_detail.h"
+#include "invoice.h"
 
 #include <vector>
 
