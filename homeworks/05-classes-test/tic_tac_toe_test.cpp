@@ -4,7 +4,7 @@
 
 TEST_CASE("test win by first column", "[x wins first column]")
 {
-	TicTacToeBoard board;
+	TicTacToe board;
 	board.start_game("x");
 	board.mark_board(0); //x
 	board.mark_board(2);//o
@@ -19,7 +19,7 @@ TEST_CASE("test win by first column", "[x wins first column]")
 
 TEST_CASE("test win by second column", "[x wins second column]")
 {
-	TicTacToeBoard board;
+	TicTacToe board;
 	board.start_game("x");
 	board.mark_board(1);//x
 	board.mark_board(3); //o
@@ -34,7 +34,7 @@ TEST_CASE("test win by second column", "[x wins second column]")
 
 TEST_CASE("test win by third column", "[x wins third column]")
 {
-	TicTacToeBoard board;
+	TicTacToe board;
 	board.start_game("x");
 	board.mark_board(2);//x
 	board.mark_board(3); //o
@@ -49,7 +49,7 @@ TEST_CASE("test win by third column", "[x wins third column]")
 
 TEST_CASE("test win by first row", "[x wins first row]")
 {
-	TicTacToeBoard board;
+	TicTacToe board;
 	board.start_game("x");
 	board.mark_board(0);//x
 	board.mark_board(3); //o
