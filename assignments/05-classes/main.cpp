@@ -6,6 +6,13 @@ using std::cout;
 int main()
 {
 	Invoice invoice;
+	Invoice invoice2;
+	Invoice result;
+
+	result = invoice + invoice2;
+	InvoiceDetail invoice_detail;
+	cin >> invoice_detail;
+
 	invoice.add_invoice_detail(InvoiceDetail(10, 10));
 	invoice.add_invoice_detail(InvoiceDetail(5, 5));
 	invoice.add_invoice_detail(InvoiceDetail(100, 2));
