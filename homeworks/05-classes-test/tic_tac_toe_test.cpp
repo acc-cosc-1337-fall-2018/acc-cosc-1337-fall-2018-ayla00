@@ -152,7 +152,7 @@ TEST_CASE("Test game over o", "[returns x]")
 	board.mark_board(6, "x");//x
 	
 
-	REQUIRE(game_over() == true)
+	REQUIRE(board.game_over() == true);
 }
 
 TEST_CASE("Test first player to x", "[returns o]")
@@ -161,7 +161,7 @@ TEST_CASE("Test first player to x", "[returns o]")
 	board.start_game("x");
 	board.get_player("x");
 
-	REQUIRE(get_player("x") == "o")
+	REQUIRE(board.get_player("x") == "o");
 }
 
 TEST_CASE("Test first player to o", "[returns x]")
@@ -171,5 +171,5 @@ TEST_CASE("Test first player to o", "[returns x]")
 	board.get_player("o");
 	
 
-	REQUIRE(get_player("o") == "x")
+	REQUIRE(board.get_player("o") == "x");
 }
