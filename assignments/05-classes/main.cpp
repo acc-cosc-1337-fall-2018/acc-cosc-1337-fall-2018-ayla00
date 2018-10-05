@@ -1,22 +1,27 @@
 #include "invoice.h"
 #include <iostream>
 
-using std::cout;
+using std::cout; using std::cin;
 
 int main()
 {
 	Invoice invoice;
-	Invoice invoice2;
-	Invoice result;
+	
+	InvoiceDetail detail;
+	std::cin >> detail;
 
-	result = invoice + invoice2;
-	InvoiceDetail invoice_detail;
-	cin >> invoice_detail;
+	
 
-	invoice.add_invoice_detail(InvoiceDetail(10, 10));
+	Invoice invoice;
+	invoice.add_invoice_detail(detail);
 	invoice.add_invoice_detail(InvoiceDetail(5, 5));
 	invoice.add_invoice_detail(InvoiceDetail(100, 2));
 
-	std::cout << invoice.get_total();
+	Invoice invoice1;
+	invoice1.add_invoice_detail(InvoiceDetail(100, 2));
 
+	Invoice result = invoice + invoice1;
+	std::cout<<result.get_total();
+
+	return 0;
 }
