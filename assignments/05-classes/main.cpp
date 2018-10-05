@@ -5,14 +5,12 @@ using std::cout; using std::cin;
 
 int main()
 {
+
 	Invoice invoice;
-	
+
 	InvoiceDetail detail;
 	std::cin >> detail;
 
-	
-
-	Invoice invoice;
 	invoice.add_invoice_detail(detail);
 	invoice.add_invoice_detail(InvoiceDetail(5, 5));
 	invoice.add_invoice_detail(InvoiceDetail(100, 2));
