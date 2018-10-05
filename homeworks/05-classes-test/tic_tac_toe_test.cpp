@@ -141,7 +141,7 @@ TEST_CASE("test no winner", "[x no win]")
 
 }
 
-TEST_CASE("Test first player to o", "[returns x]")
+TEST_CASE("Test game over o", "[returns x]")
 {
 	TicTacToe board(2,"x");
 	board.start_game("x");
