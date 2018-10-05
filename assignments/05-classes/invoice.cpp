@@ -11,14 +11,13 @@ void Invoice::add_invoice_detail(InvoiceDetail detail)
 
 double  Invoice::get_total() const
 {
-	
  return total;
 }
 
 Invoice operator+(const Invoice& i, const Invoice& i2)
 {
 	Invoice invoice;
-	invoice.get_total = i.total + i2.total;
+	invoice.total = i.total + i2.total;
 
 	return invoice;
 }
