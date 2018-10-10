@@ -8,6 +8,7 @@ using std::vector;
 using std::string;
 using std::cout;
 using std::endl;
+using std::cin;
 
 bool TicTacToe::game_over()
 {
@@ -16,11 +17,27 @@ bool TicTacToe::game_over()
 	bool diagonal = check_diagonal_win();
 	bool full = check_board_full();
 
-
-	if ((column == true) || (row == true) || (diagonal == true) || (full == true))
+	if ((column == true) || (row == true) || (diagonal == true))
+	{
+		if (pegs[position] == "x")
+		{
+			x_win = 1;  //assigns and accumulates win to player x
+			return true;
+		}
+		else if (pegs[position] == "o")
+		{
+			o_win = 1;
+			return true;
+		}
+	}
+	else if (full == true)
+	{
+		c_win = 1;
 		return true;
+	}
 	else
 		return false;
+
 
 }
 
@@ -30,7 +47,11 @@ void TicTacToe::start_game(string player)
 {
 	next_player = player;
 	clear_board();
+	clear_wins(); //resets x_win, o_win, and c_win to zero so old values are not included in total win count
+				  // by the operator+= function
 }
+
+
 
 void TicTacToe::set_next_player(string player)
 {
@@ -53,6 +74,20 @@ string TicTacToe::get_player(string player)
 {
 	set_next_player(player);
 	return next_player;
+}
+
+
+int TicTacToe::get_position(int place)
+{
+	position = place - 1;  //assigns value to variable position after intake of place
+	return position;
+}
+
+void TicTacToe::clear_wins()
+{
+	x_win = 0;
+	o_win = 0;
+	c_win = 0;
 }
 
 bool TicTacToe::check_column_win()
@@ -115,9 +150,36 @@ void TicTacToe::mark_board(int position, string player)
 		pegs[position] = "o";
 }
 
-void TicTacToe::display_board()
+
+std::istream & operator>> (std::istream& in, TicTacToe& t)
 {
-	cout << '[' << pegs[0] << ']' << '[' << pegs[1] << ']' << '[' << pegs[2] << ']' << endl;
-	cout << '[' << pegs[3] << ']' << '[' << pegs[4] << ']' << '[' << pegs[5] << ']' << endl;
-	cout << '[' << pegs[6] << ']' << '[' << pegs[7] << ']' << '[' << pegs[8] << ']' << endl;
+	in >> t.player;
+	in >> t.place;
+	return in;
 }
+
+std::ostream & operator<<(std::ostream& out, const TicTacToe& t)
+{
+	out << "* * * * tic tac toe * * * * " << endl;
+	out << "[1][2][3]" << "   " << '[' << t.pegs[0] << ']' << '[' << t.pegs[1] << ']' << '[' << t.pegs[2] << ']' << endl;
+	out << "[4][5][6]" << "   " << '[' << t.pegs[3] << ']' << '[' << t.pegs[4] << ']' << '[' << t.pegs[5] << ']' << endl;
+	out << "[7][8][9]" << "   " << '[' << t.pegs[6] << ']' << '[' << t.pegs[7] << ']' << '[' << t.pegs[8] << ']' << endl;
+	out << " *  * *  *  * *  * *  * *  *" << endl << endl;
+
+	out << "who is winning this game?" << endl;
+	//this displays the winner for the current vector only
+	//will display total wins only for accumulator object named result in main
+	out << "x wins: " << t.x_win << "    o wins: " << t.o_win << "    c wins: " << t.c_win << endl;
+
+	return out;
+}
+TicTacToe TicTacToe::operator+=(const TicTacToe& result)
+{
+	x_win += result.x_win;
+	o_win += result.o_win;
+	c_win += result.c_win;
+
+	return TicTacToe(x_win, o_win, c_win);
+}
+
+
