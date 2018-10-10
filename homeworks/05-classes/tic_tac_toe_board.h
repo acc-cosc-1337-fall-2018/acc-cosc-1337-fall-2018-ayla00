@@ -12,6 +12,7 @@ class TicTacToe
 public:
 	TicTacToe() = default;
 	TicTacToe(int x, int o, int c) : x_win(x), o_win(o), c_win(c) {}
+	TicTacToe(int place, string player) : position(place), next_player(player) {};
 	bool game_over();
 	void start_game(string player);
 	void mark_board(int position, string player);
