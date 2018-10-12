@@ -1,5 +1,5 @@
 #include "invoice_progress.h"
-#include "invoice_detail.h"
+#include "invoice.h"
 
 double InvoiceProgress::get_total() const
 {

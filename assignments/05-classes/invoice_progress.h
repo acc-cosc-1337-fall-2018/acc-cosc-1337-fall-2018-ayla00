@@ -2,7 +2,6 @@
 #define INVOICE_PROGRESS_H
 
 #include "invoice.h"
-#include "invoice_detail.h"
 
 class InvoiceProgress : public Invoice
 {

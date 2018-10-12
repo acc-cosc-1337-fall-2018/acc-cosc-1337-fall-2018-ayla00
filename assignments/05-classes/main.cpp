@@ -40,6 +40,11 @@ int main()
 	u.get_total();
 	p.get_total();
 
+	std:cout << u.get_total() << std::endl;
+	std::cout << p.get_total() << std::endl;
+
+
+
 
 	return 0;
 	
