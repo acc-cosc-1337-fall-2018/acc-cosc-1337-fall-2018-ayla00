@@ -1,6 +1,6 @@
 #include "invoice.h"
 
-#include <vector>
+//#include <vector>
 
 void Invoice::add_invoice_detail(InvoiceDetail detail)
 {
@@ -20,4 +20,14 @@ Invoice operator+(const Invoice& i, const Invoice& i2)
 	invoice.total = i.total + i2.total;
 
 	return invoice;
+
 }
+
+/*
+Invoice Invoice::operator+=(const Invoice& i2)
+{
+	total += i2.get_total;
+	
+	return Invoice(total);
+}
+*/

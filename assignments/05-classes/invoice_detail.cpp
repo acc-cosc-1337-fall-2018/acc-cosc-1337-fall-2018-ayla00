@@ -3,7 +3,7 @@
 
 using std::cout;
 
-double InvoiceDetail::get_extended_cost()
+double InvoiceDetail::get_extended_cost() const
 {
 	return cost * units;
 }

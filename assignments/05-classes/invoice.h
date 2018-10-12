@@ -1,7 +1,7 @@
 #ifndef INVOICE_H
 #define INVOICE_H
 #include "invoice_detail.h"
-#include "invoice_progress.h"
+//#include "invoice_progress.h"
 #include <vector>
 
 
