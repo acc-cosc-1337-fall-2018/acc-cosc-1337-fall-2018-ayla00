@@ -14,7 +14,7 @@ public:
 	void add_invoice_detail(InvoiceDetail detail);
 	virtual double  get_total() const;
 	friend Invoice operator+(const Invoice& i, const Invoice& i2);
-	Invoice operator+=(const Invoice& i2);
+	//Invoice operator+=(const Invoice& i2);
 
 private:
 	std::vector<InvoiceDetail>  invoice_details;
