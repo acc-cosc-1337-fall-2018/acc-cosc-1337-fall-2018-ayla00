@@ -3,5 +3,5 @@
 
 double InvoiceProgress::get_total() const
 {
-	return fixed_price = Invoice::get_total();
+	return fixed_price - Invoice::get_total();
 }

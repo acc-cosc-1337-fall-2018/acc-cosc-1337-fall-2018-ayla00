@@ -7,7 +7,7 @@
 class InvoiceProgress : public Invoice
 {
 public:
-	InvoiceProgress(double fp) : fixed_price(fp){}
+	InvoiceProgress(double fp) : fixed_price(fp) {}
 	double get_total() const;
 private:
 	double fixed_price;
