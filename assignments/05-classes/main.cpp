@@ -1,6 +1,7 @@
 #include "invoice.h"
 #include "invoice_utility.h"
 #include "invoice_detail.h"
+#include "invoice_progress.h"
 #include <iostream>
 
 using std::cout; using std::cin;
@@ -8,6 +9,7 @@ using std::cout; using std::cin;
 int main()
 {
 
+	
 	Invoice invoice;
 
 	InvoiceDetail detail;
@@ -23,9 +25,22 @@ int main()
 	Invoice result = invoice + invoice1;
 	std::cout<<result.get_total();
 
-	InvoiceUtility inv(25);
-	inv.add_invoice_detail(InvoiceDetail(100, 1));
-	std::cout << inv.get_total();
+	InvoiceUtility invu(25);
+	invu.add_invoice_detail(InvoiceDetail(100, 1));
+	std::cout << invu.get_total();
+
+	InvoiceProgress invp(250);
+	invp.add_invoice_detail(InvoiceDetail(100, 1));
+
+	invu.get_total();
+	invp.get_total();
+
+	Invoice& u = invu;
+	Invoice& p = invp;
+	u.get_total();
+	p.get_total();
+
 
 	return 0;
+	
 }

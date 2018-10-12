@@ -40,9 +40,17 @@ TEST_CASE("test inv operator overloading")
 
 TEST_CASE("test invoice utility")
 {
-	InvoiceUtility inv(25);
-	inv.add_invoice_detail(InvoiceDetail(100, 1));
+	InvoiceUtility invu(25);
+	invu.add_invoice_detail(InvoiceDetail(100, 1));
 
 	REQUIRE(inv.get_total() == 125);
 
+}
+
+TEST_CASE("test invoice_progress get total")
+{
+	InvoiceProgress invp(250);
+	invp.add_invoice_detail(InvoiceDetail(100, 1));
+
+	REQUIRE(inv.get_total() == 150);
 }
