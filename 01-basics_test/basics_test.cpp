@@ -21,11 +21,10 @@ TEST_CASE("Test multiply_numbers", "Products 4, 25, 100") {
 	REQUIRE(multiply_numbers(10, 10) == 100);
 }
 
-TEST_CASE ("TEST PASS BY VALUE AND REFERNCE", "") {
+TEST_CASE("Test pass_by_value_by_ref", "") {
 	int num1{0};
 	int num2{0};
 	
-	pass_by_value_by_ref(num1, num2);
 	
 	REQUIRE (num1 == 0);
 	REQUIRE (num2 == 99);
