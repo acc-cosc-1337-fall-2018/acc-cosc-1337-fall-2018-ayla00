@@ -113,7 +113,7 @@ double get_gc_content(std::string dna)
 {
 	auto size = dna.size(); //get the size of string let auto handle the data type
 	auto gc_count{ 0 }; //initialize to 0 (int) let auto handle data type
-	int i = 0;
+	
 	//for ranged loop, for each character in loop, s holds one char
 	//auto determines data type in this case s is a char data type
 	for (auto s : dna)
@@ -121,14 +121,10 @@ double get_gc_content(std::string dna)
 		//in C++ logical and is && and logical or is ||
 		//usage (and) condition1 && condition2 --- usage (or) condition1 || condition2 
 		//write code to determine if s is 'C' or 'G' then increment gc_count by 1
-		if (dna[i] == 'C' || dna[i] == 'G')
+		if (s == 'C' || s == 'G')
 		{
 			gc_count = gc_count + 1;
-			i = i + 1;
 		}
-		else
-			i = i + 1;
-
 	}
 
 	//dividing two integers nets an integer
