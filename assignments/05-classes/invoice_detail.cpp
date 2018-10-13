@@ -1,5 +1,4 @@
 #include "invoice_detail.h"
-#include <iostream>
 
 using std::cout;
 
