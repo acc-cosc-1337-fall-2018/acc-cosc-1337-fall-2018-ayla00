@@ -141,10 +141,10 @@ bool TicTacToe::check_board_full()
 	return option;
 }
 
-void TicTacToe::mark_board(int position, string player)
+void TicTacToe::mark_board(int position)
 {
 
-	if (player == "x")
+	if (next_player == "x")
 		pegs[position] = "x";
 	else
 		pegs[position] = "o";

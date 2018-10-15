@@ -47,7 +47,7 @@ int main()
 			cout << "player " << tictactoe.player << " position is: ";
 			cin >> tictactoe.place;      //overloaded operator>>
 			tictactoe.get_position(tictactoe.place);
-			tictactoe.mark_board(tictactoe.position, tictactoe.player);
+			tictactoe.mark_board(tictactoe.position);
 
 			counter = counter + 1;
 			over = tictactoe.game_over();

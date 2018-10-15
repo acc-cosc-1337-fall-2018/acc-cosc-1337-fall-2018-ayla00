@@ -15,7 +15,7 @@ public:
 	TicTacToe(int place, string player) : position(place), next_player(player) {};
 	bool game_over();
 	void start_game(string player);
-	void mark_board(int position, string player);
+	void mark_board(int position);
 	string get_player(string player);
 	string player;
 	int position;
