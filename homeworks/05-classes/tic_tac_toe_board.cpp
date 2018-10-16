@@ -4,8 +4,6 @@
 #include<iostream>
 
 
-using std::vector;
-using std::string;
 using std::cout;
 using std::endl;
 using std::cin;
@@ -19,14 +17,14 @@ bool TicTacToe::game_over()
 
 	if ((column == true) || (row == true) || (diagonal == true))
 	{
-		if (pegs[position] == "x")
+		if (next_player == "x")
 		{
-			x_win = 1;  //assigns and accumulates win to player x
+			o_win = 1;  //assigns and accumulates win to player x
 			return true;
 		}
-		else if (pegs[position] == "o")
+		else 
 		{
-			o_win = 1;
+			x_win = 1;
 			return true;
 		}
 	}
@@ -53,9 +51,9 @@ void TicTacToe::start_game(string player)
 
 
 
-void TicTacToe::set_next_player(string player)
+void TicTacToe::set_next_player()
 {
-	if (player == "x")
+	if (next_player == "x")
 		next_player = "o";
 	else
 		next_player = "x";
@@ -70,17 +68,9 @@ void TicTacToe::clear_board()
 	}
 }
 
-string TicTacToe::get_player(string player)
+string TicTacToe::get_player()
 {
-	set_next_player(player);
 	return next_player;
-}
-
-
-int TicTacToe::get_position(int place)
-{
-	position = place - 1;  //assigns value to variable position after intake of place
-	return position;
 }
 
 void TicTacToe::clear_wins()
@@ -144,17 +134,17 @@ bool TicTacToe::check_board_full()
 void TicTacToe::mark_board(int position)
 {
 
-	if (next_player == "x")
-		pegs[position] = "x";
-	else
-		pegs[position] = "o";
+	pegs[position - 1] = next_player;
+
+	set_next_player();
 }
 
 
 std::istream & operator>> (std::istream& in, TicTacToe& t)
 {
-	in >> t.player;
-	in >> t.place;
+	int position;
+	in >> position;
+	t.mark_board(position);
 	return in;
 }
 
