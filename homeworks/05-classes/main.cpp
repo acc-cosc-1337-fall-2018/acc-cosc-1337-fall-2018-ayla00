@@ -52,7 +52,7 @@ int main()
 			counter = counter + 1;
 			over = tictactoe.game_over();
 			cout << tictactoe << endl;
-			tictactoe.player = tictactoe.get_player(tictactoe.player);
+			tictactoe.player = tictactoe.get_player();
 		}
 
 		ticvector.push_back(tictactoe); //populates ticvector vector with a, b, and c instances
