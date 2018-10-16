@@ -57,7 +57,7 @@ void TicTacToe::set_next_player()
 {
 	if (next_player == "x")
 		next_player = "o";
-	else
+	else if (next_player == "o")
 		next_player = "x";
 
 }
