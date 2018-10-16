@@ -53,9 +53,9 @@ void TicTacToe::start_game(string player)
 
 
 
-void TicTacToe::set_next_player(string player)
+void TicTacToe::set_next_player()
 {
-	if (player == "x")
+	if (next_player == "x")
 		next_player = "o";
 	else
 		next_player = "x";
@@ -70,9 +70,9 @@ void TicTacToe::clear_board()
 	}
 }
 
-string TicTacToe::get_player(string player)
+string TicTacToe::get_player()
 {
-	set_next_player(player);
+	set_next_player();
 	return next_player;
 }
 

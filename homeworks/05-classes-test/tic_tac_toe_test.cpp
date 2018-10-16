@@ -159,17 +159,17 @@ TEST_CASE("Test first player to x", "[returns o]")
 {
 	TicTacToe board(0, "x");
 	board.start_game("x");
-	board.get_player("x");
+	board.get_player();
 
-	REQUIRE(board.get_player("x") == "o");
+	REQUIRE(board.get_player() == "o");
 }
 
 TEST_CASE("Test first player to o", "[returns x]")
 {
 	TicTacToe board(1,"o");
 	board.start_game("o");
-	board.get_player("o");
+	board.get_player();
 	
 
-	REQUIRE(board.get_player("o") == "x");
+	REQUIRE(board.get_player() == "x");
 }
