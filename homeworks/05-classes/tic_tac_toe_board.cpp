@@ -3,7 +3,6 @@
 #include<vector>
 #include<iostream>
 
-
 using std::vector;
 using std::string;
 using std::cout;
@@ -53,11 +52,11 @@ void TicTacToe::start_game(string player)
 
 
 
-void TicTacToe::set_next_player()
+void TicTacToe::set_next_player(string player)
 {
-	if (next_player == "x")
+	if (player == "x")
 		next_player = "o";
-	else if (next_player == "o")
+	else
 		next_player = "x";
 
 }
@@ -70,9 +69,9 @@ void TicTacToe::clear_board()
 	}
 }
 
-string TicTacToe::get_player()
+string TicTacToe::get_player(string player)
 {
-	set_next_player();
+	set_next_player(player);
 	return next_player;
 }
 
@@ -141,10 +140,10 @@ bool TicTacToe::check_board_full()
 	return option;
 }
 
-void TicTacToe::mark_board(int position)
+void TicTacToe::mark_board(int position, string player)
 {
 
-	if (next_player == "x")
+	if (player == "x")
 		pegs[position] = "x";
 	else
 		pegs[position] = "o";
@@ -181,5 +180,3 @@ TicTacToe TicTacToe::operator+=(const TicTacToe& result)
 
 	return TicTacToe(x_win, o_win, c_win);
 }
-
-

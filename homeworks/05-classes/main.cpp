@@ -3,7 +3,6 @@
 #include <vector>
 #include <iostream>
 
-
 using std::string; using std::vector; using std::endl; using std::cout; using std::cin;
 
 int main()
@@ -47,12 +46,12 @@ int main()
 			cout << "player " << tictactoe.player << " position is: ";
 			cin >> tictactoe.place;      //overloaded operator>>
 			tictactoe.get_position(tictactoe.place);
-			tictactoe.mark_board(tictactoe.position);
+			tictactoe.mark_board(tictactoe.position, tictactoe.player);
 
 			counter = counter + 1;
 			over = tictactoe.game_over();
 			cout << tictactoe << endl;
-			tictactoe.player = tictactoe.get_player();
+			tictactoe.player = tictactoe.get_player(tictactoe.player);
 		}
 
 		ticvector.push_back(tictactoe); //populates ticvector vector with a, b, and c instances
@@ -75,3 +74,5 @@ int main()
 	}
 
 }
+
+
