@@ -17,6 +17,8 @@ bool TicTacToe::game_over()
 	bool diagonal = check_diagonal_win();
 	bool full = check_board_full();
 
+	cout << column << '\n' << row << '\n' << diagonal << '\n' << full << endl;
+
 	if ((column == true) || (row == true) || (diagonal == true))
 	{
 		if (pegs[position - 1].val == "x")

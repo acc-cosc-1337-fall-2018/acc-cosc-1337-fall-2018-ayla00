@@ -3,6 +3,7 @@
 #include "tic_tac_toe_board.h"
 #include <iostream>
 
+using std::endl;
 
 TicTacToe4::TicTacToe4()
 {
@@ -69,9 +70,10 @@ std::istream & operator>> (std::istream& in, TicTacToe4& t)
 
 void TicTacToe4::display_board(std::ostream& out) const
 {
-	out << "[1][2][3]" << "     " << '[' << pegs[0].val << ']' << '[' << pegs[1].val << ']' << '[' << pegs[2].val << ']' << std::endl;
-	out << "[4][5][6]" << "     " << '[' << pegs[3].val << ']' << '[' << pegs[4].val << ']' << '[' << pegs[5].val << ']' << std::endl;
-	out << "[7][8][9]" << "     " << '[' << pegs[6].val << ']' << '[' << pegs[7].val << ']' << '[' << pegs[8].val << ']' << std::endl;
+	out << "[ 1][ 2][ 3][ 4]" << "     " << '[' << pegs[0].val << ']' << '[' << pegs[1].val << ']' << '[' << pegs[2].val << ']' << '[' << pegs[3].val << ']' << std::endl;
+	out << "[ 5][ 6][ 7][ 8]" << "     " << '[' << pegs[4].val << ']' << '[' << pegs[5].val << ']' << '[' << pegs[6].val << ']' << '[' << pegs[7].val << ']' << std::endl;
+	out << "[ 9][10][11][12]" << "     " << '[' << pegs[8].val << ']' << '[' << pegs[9].val << ']' << '[' << pegs[10].val << ']' << '[' << pegs[11].val << ']' << std::endl;
+	out << "[13][14][15][16]" << "     " << '[' << pegs[12].val << ']' << '[' << pegs[13].val << ']' << '[' << pegs[14].val << ']' << '[' << pegs[15].val << ']' << std::endl;
 }
 
 

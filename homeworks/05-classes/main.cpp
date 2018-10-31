@@ -34,7 +34,7 @@ int main()
 
 		tictactoe.start_game(tictactoe.player);
 
-		while ((over == false) && (counter < 9))
+		while (over == false)
 		{
 			cout << "choose which position you want to place your peg" << endl;
 			cout << "by typing the number and pressing enter" << endl;
@@ -56,6 +56,9 @@ int main()
 		counter = 0;
 
 	}
+	
+	
+	
 }
 
 
