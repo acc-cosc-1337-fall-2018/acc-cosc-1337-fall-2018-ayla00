@@ -19,12 +19,12 @@ bool TicTacToe::game_over()
 
 	if ((column == true) || (row == true) || (diagonal == true))
 	{
-		if (pegs[position] == "x")
+		if (pegs[position - 1].val == "x")
 		{
 			x_win = 1;  //assigns and accumulates win to player x
 			return true;
 		}
-		else if (pegs[position] == "o")
+		else if (pegs[position - 1].val == "o")
 		{
 			o_win = 1;
 			return true;
@@ -66,22 +66,16 @@ void TicTacToe::clear_board()
 {
 	for (int i = 0; i <= 8; i++)
 	{
-		pegs[i] = " ";
+		pegs[i].val = " ";
 	}
 }
 
-string TicTacToe::get_player(string player) const
+string TicTacToe::get_player(string player)
 {
 	set_next_player(player);
 	return next_player;
 }
 
-
-int TicTacToe::get_position(int place)
-{
-	position = place - 1;  //assigns value to variable position after intake of place
-	return position;
-}
 
 void TicTacToe::clear_wins()
 {
@@ -95,44 +89,22 @@ void TicTacToe::clear_wins()
 
 bool TicTacToe::check_board_full() const
 {
-	bool option = true;
-	for (int i = 0; i <= 8; i++)
-	{
-		if (pegs[i] == " ")
-			option = false;
-		else
-			option = option;
 
-	}
-	return option;
-}
-
-void TicTacToe::mark_board(int position, string player)
-{
-
-	if (player == "x")
-		pegs[position] = "x";
+	if (checkfull == false)
+		return false;
 	else
-		pegs[position] = "o";
+		return true;
 }
 
-
-std::istream & operator>> (std::istream& in, TicTacToe& t)
+void TicTacToe::mark_board(int position)
 {
-	t.get_input(in);
-	//in >> t.player;
-	//in >> t.place;
-	return in;
+
+	if (next_player == "x")
+		pegs[position - 1].val = "x";
+	else
+		pegs[position - 1].val = "o";
 }
 
-std::ostream & operator<<(std::ostream& out, const TicTacToe& t)
-{
-	t.display_board(out);
 
-	return out;
-}
-
-///define display_board on TicTacToe3 and 4
-// void TicTacToe3::display_board(std::ostream& out) const
 
 

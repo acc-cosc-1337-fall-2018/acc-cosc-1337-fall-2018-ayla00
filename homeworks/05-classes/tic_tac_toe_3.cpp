@@ -1,13 +1,8 @@
 #include "tic_tac_toe_3.h"
+#include "peg.h"
+#include "tic_tac_toe_board.h"
+#include <iostream>
 
-///define display_board on TicTacToe3 and 4
-// void TicTacToe3::display_board(std::ostream& out) const
-
-// for(unsigned i = 0; i < pegs.size(); i += 3)
-//{
-//out << pegs[i].val << " " << pegs[i +1}.val << " " << pegs[i+ 2].val << std::endl;
-//}
-//out o_win, c
 
 TicTacToe3::TicTacToe3()
 {
@@ -21,11 +16,11 @@ TicTacToe3::TicTacToe3()
 
 bool TicTacToe3::check_column_win() const
 {
-	if ((pegs[0] != " ") && (pegs[0] == pegs[3]) && (pegs[3] == pegs[6]))
+	if ((pegs[0].val != " ") && (pegs[0].val == pegs[3].val) && (pegs[3].val == pegs[6].val))
 		return true;
-	else if ((pegs[1] != " ") && (pegs[1] == pegs[4]) && (pegs[4] == pegs[7]))
+	else if ((pegs[1].val != " ") && (pegs[1].val == pegs[4].val) && (pegs[4].val == pegs[7].val))
 		return true;
-	else if ((pegs[2] != " ") && (pegs[2] == pegs[5]) && (pegs[5] == pegs[8]))
+	else if ((pegs[2].val != " ") && (pegs[2].val == pegs[5].val) && (pegs[5].val == pegs[8].val))
 		return true;
 	else
 		return false;
@@ -35,22 +30,24 @@ bool TicTacToe3::check_column_win() const
 bool TicTacToe3::check_diagonal_win() const
 {
 
-	if ((pegs[0] != " ") && (pegs[0] == pegs[4]) && (pegs[4] == pegs[8]))
+	if ((pegs[0].val != " ") && (pegs[0].val == pegs[4].val) && (pegs[4].val == pegs[8].val))
 		return true;
-	else if ((pegs[2] != " ") && (pegs[2] == pegs[4]) && (pegs[4] == pegs[6]))
+	else if ((pegs[2].val != " ") && (pegs[2].val == pegs[4].val) && (pegs[4].val == pegs[6].val))
 		return true;
 	else
 		return false;
 
 }
 
+
+
 bool TicTacToe3::check_row_win() const
 {
-	if ((pegs[0] != " ") && (pegs[0] == pegs[1]) && (pegs[1] == pegs[2]))
+	if ((pegs[0].val != " ") && (pegs[0].val == pegs[1].val) && (pegs[1].val == pegs[2].val))
 		return true;
-	else if ((pegs[3] != " ") && (pegs[3] == pegs[4]) && (pegs[4] == pegs[5]))
+	else if ((pegs[3].val != " ") && (pegs[3].val == pegs[4].val) && (pegs[4].val == pegs[5].val))
 		return true;
-	else if ((pegs[6] != " ") && (pegs[6] == pegs[7]) && (pegs[7] == pegs[8]))
+	else if ((pegs[6].val != " ") && (pegs[6].val == pegs[7].val) && (pegs[7].val == pegs[8].val))
 		return true;
 	else
 		return false;
@@ -64,10 +61,39 @@ std::istream & operator>> (std::istream& in, TicTacToe3& t)
 	return in;
 }
 
-get input
+
+void TicTacToe3::display_board(std::ostream& out) const
 {
-	int position
-	std::cout << "enter position";
+	out << "[1][2][3]" << "     " << '[' << pegs[0].val << ']' << '[' << pegs[1].val << ']' << '[' << pegs[2].val << ']' << std::endl;
+	out << "[4][5][6]" << "     " << '[' << pegs[3].val << ']' << '[' << pegs[4].val << ']' << '[' << pegs[5].val << ']' << std::endl;
+	out << "[7][8][9]" << "     " << '[' << pegs[6].val << ']' << '[' << pegs[7].val << ']' << '[' << pegs[8].val << ']' << std::endl;
+}
+
+
+std::ostream & operator<<(std::ostream& out, TicTacToe3& t)
+{
+	t.display_board(out);
+
+	return out;
+}
+
+void TicTacToe3::get_input(std::istream & in)
+{
+	std::cout << "enter position" << std::endl;
 	in >> position;
 	mark_board(position);
+}
+
+bool TicTacToe3::check()
+{
+	checkfull = true;
+	for (int i = 0; i <= 8; i++)
+	{
+		if (pegs[i].val == " ")
+			checkfull = false;
+		else
+			checkfull = checkfull;
+
+	}
+	return checkfull;
 }
