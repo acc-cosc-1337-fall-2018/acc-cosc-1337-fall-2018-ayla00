@@ -81,6 +81,8 @@ string TicTacToe::get_player(string player)
 
 
 
+
+
 void TicTacToe::clear_wins()
 {
 	x_win = 0;
@@ -98,8 +100,5 @@ void TicTacToe::mark_board(int position)
 	else
 		pegs[position - 1].val = "o";
 }
-
-
-
 
 

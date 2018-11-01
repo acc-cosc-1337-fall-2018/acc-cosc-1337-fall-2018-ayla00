@@ -94,7 +94,7 @@ void TicTacToe4::get_input(std::istream & in)
 bool TicTacToe4::check_board_full() const
 {
 	bool option = true;
-	for (int i = 0; i <= 16; i++)
+	for (int i = 0; i <= 15; i++)
 	{
 		if (pegs[i].val == " ")
 			option = false;

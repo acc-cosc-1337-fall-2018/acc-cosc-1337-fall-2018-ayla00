@@ -17,6 +17,8 @@ public:
 	void display_board(std::ostream& out) const override;
 	friend std::istream & operator>> (std::istream& in, TicTacToe3& t);
 	friend std::ostream & operator<< (std::ostream& out, TicTacToe3& t);
+	int choose();
+	int choice;
 
 
 protected:
@@ -25,7 +27,7 @@ protected:
 	bool check_diagonal_win() const;
 	bool check_board_full() const;
 	void get_input(std::istream& in);
-	//bool check();
+	
 
 
 };

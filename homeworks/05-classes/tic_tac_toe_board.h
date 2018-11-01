@@ -19,6 +19,7 @@ public:
 	string player;
 	int position;
 
+
 protected:
 	string next_player;
 	void set_next_player(string player);

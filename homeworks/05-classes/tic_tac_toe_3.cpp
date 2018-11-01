@@ -3,6 +3,7 @@
 #include "tic_tac_toe_board.h"
 #include <iostream>
 
+using std::cin;
 
 TicTacToe3::TicTacToe3()
 {
@@ -67,6 +68,13 @@ void TicTacToe3::display_board(std::ostream& out) const
 	out << "[1][2][3]" << "     " << '[' << pegs[0].val << ']' << '[' << pegs[1].val << ']' << '[' << pegs[2].val << ']' << std::endl;
 	out << "[4][5][6]" << "     " << '[' << pegs[3].val << ']' << '[' << pegs[4].val << ']' << '[' << pegs[5].val << ']' << std::endl;
 	out << "[7][8][9]" << "     " << '[' << pegs[6].val << ']' << '[' << pegs[7].val << ']' << '[' << pegs[8].val << ']' << std::endl;
+}
+
+int TicTacToe3::choose()
+{
+	std::cout << "enter your choice of 3 or 4 to play." << std::endl;
+	cin >> choice;
+	return choice;
 }
 
 
