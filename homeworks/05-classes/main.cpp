@@ -53,7 +53,7 @@ int main()
 			cout << "if you want to quit, type q" << endl;
 			cin >> yesno;
 			
-			if (yesno == "q")
+		
 				tictactoe.clearvector();
 			
 			over = false;
@@ -91,7 +91,7 @@ int main()
 			cout << "if you want to quit, type q" << endl;
 			cin >> yesno;
 
-			if (yesno == "q")
+	
 				tictactoe.clearvector();
 				
 	
