@@ -7,7 +7,7 @@ using std::endl;
 
 TicTacToe4::TicTacToe4()
 {
-	for (int i = 0; i < 16; i++)
+	for (int i = 0; i <= 15; i++)
 	{
 		Peg peg;
 		pegs.push_back(peg);

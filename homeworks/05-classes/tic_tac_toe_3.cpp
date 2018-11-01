@@ -7,7 +7,7 @@ using std::cin;
 
 TicTacToe3::TicTacToe3()
 {
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i <= 8; i++)
 	{
 		Peg peg;
 		pegs.push_back(peg);
