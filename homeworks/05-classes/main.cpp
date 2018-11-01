@@ -21,13 +21,9 @@ int main()
 	while (yesno != "q")
 	{
 
-		//TicTacToe3 tictactoe;
-		TicTacToe4 tictactoe;
+		TicTacToe3 tictactoe;
+		//TicTacToe4 tictactoe;
 
-		cout << "these are the positions of the board" << endl;
-		cout << "[1][2][3]" << endl;
-		cout << "[4][5][6]" << endl;
-		cout << "[7][8][9]" << endl;
 		cout << "choose your peg (x or o): " << endl;
 		cin >> tictactoe.player;
 

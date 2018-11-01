@@ -18,12 +18,14 @@ public:
 	friend std::istream & operator>> (std::istream& in, TicTacToe3& t);
 	friend std::ostream & operator<< (std::ostream& out, TicTacToe3& t);
 
+
 protected:
 	bool check_column_win() const;
 	bool check_row_win() const;
 	bool check_diagonal_win() const;
+	bool check_board_full() const;
 	void get_input(std::istream& in);
-	bool check();
+	//bool check();
 
 
 };

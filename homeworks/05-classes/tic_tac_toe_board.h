@@ -25,12 +25,12 @@ protected:
 	virtual bool check_column_win() const = 0;
 	virtual bool check_row_win() const = 0;
 	virtual bool check_diagonal_win() const = 0;
-	bool check_board_full() const;
+	virtual bool check_board_full() const = 0;
 	void clear_board();
 	void clear_wins();
 	vector<Peg> pegs; //initialize vector in tictactoe3 and 4
 	virtual void get_input(std::istream& in) = 0;
-	bool checkfull;
+	
 
 	int x_win{ 0 };
 	int o_win{ 0 };

@@ -1,4 +1,5 @@
 #include "tic_tac_toe_board.h"
+#include "tic_tac_toe_3.h"
 #include "peg.h"
 #include <string>
 #include<vector>
@@ -17,7 +18,7 @@ bool TicTacToe::game_over()
 	bool diagonal = check_diagonal_win();
 	bool full = check_board_full();
 
-	cout << column << '\n' << row << '\n' << diagonal << '\n' << full << endl;
+	
 
 	if ((column == true) || (row == true) || (diagonal == true))
 	{
@@ -79,6 +80,7 @@ string TicTacToe::get_player(string player)
 }
 
 
+
 void TicTacToe::clear_wins()
 {
 	x_win = 0;
@@ -88,16 +90,6 @@ void TicTacToe::clear_wins()
 
 
 
-
-bool TicTacToe::check_board_full() const
-{
-
-	if (checkfull == false)
-		return false;
-	else
-		return true;
-}
-
 void TicTacToe::mark_board(int position)
 {
 
@@ -106,6 +98,7 @@ void TicTacToe::mark_board(int position)
 	else
 		pegs[position - 1].val = "o";
 }
+
 
 
 

@@ -91,16 +91,17 @@ void TicTacToe4::get_input(std::istream & in)
 	mark_board(position);
 }
 
-bool TicTacToe4::check()
+bool TicTacToe4::check_board_full() const
 {
-	checkfull = true;
+	bool option = true;
 	for (int i = 0; i <= 16; i++)
 	{
 		if (pegs[i].val == " ")
-			checkfull = false;
+			option = false;
 		else
-			checkfull = checkfull;
+			option = option;
 
 	}
-	return checkfull;
+	return option;
 }
+

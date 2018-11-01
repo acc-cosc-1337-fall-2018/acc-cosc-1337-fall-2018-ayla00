@@ -24,7 +24,7 @@ protected:
 	bool check_column_win() const;
 	bool check_row_win() const;
 	bool check_diagonal_win() const;
-	bool check();
+	bool check_board_full() const;
 	void get_input(std::istream& in);
 
 };
