@@ -54,7 +54,7 @@ int main()
 			cin >> yesno;
 			
 		
-				tictactoe.clearvector();
+				//tictactoe.clearvector();
 			
 			over = false;
 			counter = 0;
@@ -92,7 +92,7 @@ int main()
 			cin >> yesno;
 
 	
-				tictactoe.clearvector();
+				//tictactoe.clearvector();
 				
 	
 			over = false;

@@ -19,7 +19,7 @@ TEST_CASE("test win by first column", "[x wins first column]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector();
 
 }
 
@@ -37,7 +37,7 @@ TEST_CASE("test win by second column", "[x wins second column]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -55,7 +55,7 @@ TEST_CASE("test win by third column", "[x wins third column]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -73,7 +73,7 @@ TEST_CASE("test win by first row", "[x wins first row]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -92,7 +92,7 @@ TEST_CASE("test win by secon row", "[x wins second row]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -110,7 +110,7 @@ TEST_CASE("test win by third row", "[x wins third row]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -128,7 +128,7 @@ TEST_CASE("test win diagonally from top left", "[x wins diagonally]")
 	// x wins  
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -146,7 +146,7 @@ TEST_CASE("test win diagonally from bottom left", "[x wins diagonally]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -168,7 +168,7 @@ TEST_CASE("test no winner", "[x no win]")
 	// no one wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -188,7 +188,7 @@ TEST_CASE("Test game over o", "[returns ?]")
 
 	REQUIRE(board.game_over() == true);
 
-	board.clearvector;
+	//board.clearvector;
 }
 
 TEST_CASE("Test first player to x", "[returns o]")
@@ -235,7 +235,7 @@ TEST_CASE("4 - test win by first column", "[x wins first column]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -255,7 +255,7 @@ TEST_CASE("4 - test win by second column", "[x wins second column]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -275,7 +275,7 @@ TEST_CASE("4 - test win by third column", "[x wins third column]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -296,7 +296,7 @@ TEST_CASE("4 - test win by fourth column", "[x wins third column]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -318,7 +318,7 @@ TEST_CASE("4 - test win by first row", "[x wins first row]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -338,7 +338,7 @@ TEST_CASE("4 - test win by secon row", "[x wins second row]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -358,7 +358,7 @@ TEST_CASE("4 - test win by third row", "[x wins third row]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -378,7 +378,7 @@ TEST_CASE("4 - test win by fourth row", "[x wins third row]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -398,7 +398,7 @@ TEST_CASE("4 - test win diagonally from top left", "[x wins diagonally]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -418,7 +418,7 @@ TEST_CASE("4 - test win diagonally from bottom left", "[x wins diagonally]")
 	// x wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
@@ -447,7 +447,7 @@ TEST_CASE("4 - test no winner", "[x no win]")
 	// no one wins
 
 	REQUIRE(board.game_over() == true);
-	board.clearvector;
+	//board.clearvector;
 
 }
 
