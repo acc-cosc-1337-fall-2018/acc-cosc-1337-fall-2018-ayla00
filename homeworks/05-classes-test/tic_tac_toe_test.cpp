@@ -14,7 +14,7 @@ TEST_CASE("test win by first column", "[x wins first column]")
 	board.mark_board(1); //x
 	board.mark_board(3);//o
 	board.mark_board(4);//x
-	board.mark_board(6);//o
+	board.mark_board(5);//o
 	board.mark_board(7);//x
 	// x wins
 
@@ -169,12 +169,12 @@ TEST_CASE("Test game over o", "[returns ?]")
 	TicTacToe3 t;
 	t.choice = 3; 
 	TicTacToe3 board;
-	board.start_game("x");
-	board.mark_board(3);//x
-	board.mark_board(4); //o
-	board.mark_board(5);//x
-	board.mark_board(1);//o
-	board.mark_board(7);//x
+	board.start_game("o");
+	board.mark_board(3);//o
+	board.mark_board(4); //x
+	board.mark_board(5);//o
+	board.mark_board(1);//x
+	board.mark_board(7);//o
 	
 
 	REQUIRE(board.game_over() == true);

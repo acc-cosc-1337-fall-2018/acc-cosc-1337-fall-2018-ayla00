@@ -18,6 +18,7 @@ public:
 	virtual void display_board(std::ostream& out) const = 0;
 	string player;
 	int position;
+	void clearvector();
 
 
 protected:

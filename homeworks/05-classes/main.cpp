@@ -52,7 +52,10 @@ int main()
 			cout << "would you like to play again? " << endl << "if yes, press y" << endl;
 			cout << "if you want to quit, type q" << endl;
 			cin >> yesno;
-
+			
+			if (yesno == "q")
+				tictactoe.clearvector();
+			
 			over = false;
 			counter = 0;
 
@@ -88,10 +91,15 @@ int main()
 			cout << "if you want to quit, type q" << endl;
 			cin >> yesno;
 
+			if (yesno == "q")
+				tictactoe.clearvector();
+				
+	
 			over = false;
 			counter = 0;
 
 		}
+		
 		
 	}
 }

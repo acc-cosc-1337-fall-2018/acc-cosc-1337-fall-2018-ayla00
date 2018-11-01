@@ -79,8 +79,10 @@ string TicTacToe::get_player(string player)
 	return next_player;
 }
 
-
-
+void TicTacToe::clearvector()
+{
+	pegs.clear();
+}
 
 
 void TicTacToe::clear_wins()
@@ -100,5 +102,4 @@ void TicTacToe::mark_board(int position)
 	else
 		pegs[position - 1].val = "o";
 }
-
 
