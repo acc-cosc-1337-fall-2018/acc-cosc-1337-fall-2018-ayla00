@@ -22,12 +22,12 @@ bool TicTacToe::game_over()
 
 	if ((column == true) || (row == true) || (diagonal == true))
 	{
-		if (pegs[position - 1].val == "x")
+		if (next_player == "o")
 		{
 			x_win = 1;  //assigns and accumulates win to player x
 			return true;
 		}
-		else if (pegs[position - 1].val == "o")
+		else if (next_player == "x")
 		{
 			o_win = 1;
 			return true;
@@ -50,15 +50,14 @@ void TicTacToe::start_game(string player)
 {
 	next_player = player;
 	clear_board();
-	clear_wins(); //resets x_win, o_win, and c_win to zero so old values are not included in total win count
-				  // by the operator+= function
+	set_next_player();
 }
 
 
 
-void TicTacToe::set_next_player(string player)
+void TicTacToe::set_next_player()
 {
-	if (player == "x")
+	if (next_player == "x")
 		next_player = "o";
 	else
 		next_player = "x";
@@ -75,31 +74,11 @@ void TicTacToe::clear_board()
 
 string TicTacToe::get_player(string player)
 {
-	set_next_player(player);
 	return next_player;
 }
 
-void TicTacToe::clearvector()
-{
-	pegs.clear();
-}
-
-
-void TicTacToe::clear_wins()
-{
-	x_win = 0;
-	o_win = 0;
-	c_win = 0;
-}
-
-
-
 void TicTacToe::mark_board(int position)
 {
-
-	if (next_player == "x")
-		pegs[position - 1].val = "x";
-	else
-		pegs[position - 1].val = "o";
+	pegs[position - 1].val = next_player;
 }
 
