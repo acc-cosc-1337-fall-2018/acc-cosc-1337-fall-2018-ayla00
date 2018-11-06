@@ -1,6 +1,7 @@
 #include "tic_tac_toe_board.h"
-#include "tic_tac_toe_3.h"
+//#include "tic_tac_toe_3.h"
 #include "peg.h"
+#include "tic_tac_toe_manager.h"
 #include <string>
 #include<vector>
 #include<iostream>
@@ -17,31 +18,20 @@ bool TicTacToe::game_over()
 	bool row = check_row_win();
 	bool diagonal = check_diagonal_win();
 	bool full = check_board_full();
-
-	
+	TManager tm;
 
 	if ((column == true) || (row == true) || (diagonal == true))
 	{
-		if (next_player == "o")
-		{
-			x_win = 1;  //assigns and accumulates win to player x
-			return true;
-		}
-		else if (next_player == "x")
-		{
-			o_win = 1;
-			return true;
-		}
+		tm.get_win(pegs[position - 1].val);
+		return true;
 	}
 	else if (full == true)
 	{
-		c_win = 1;
+		tm.get_win(pegs[position - 1].val);
 		return true;
 	}
 	else
 		return false;
-
-
 }
 
 

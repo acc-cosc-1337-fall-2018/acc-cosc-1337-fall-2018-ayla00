@@ -31,10 +31,6 @@ protected:
 	vector<Peg> pegs; //initialize vector in tictactoe3 and 4
 	virtual void get_input(std::istream& in) = 0;
 	
-
-	int x_win{ 0 };
-	int o_win{ 0 };
-	int c_win{ 0 };
 };
 #endif //TIC_TAC_TOE_H
 
