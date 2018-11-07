@@ -13,12 +13,10 @@ class TicTacToe3 : public TicTacToe
 {
 public:
 	TicTacToe3();
-	//TicTacToe3(int place, string player) : next_player(player) {}
 	void display_board(std::ostream& out) const override;
 	friend std::istream & operator>> (std::istream& in, TicTacToe3& t);
 	friend std::ostream & operator<< (std::ostream& out, TicTacToe3& t);
-	int choose();
-	int choice;
+
 
 
 protected:

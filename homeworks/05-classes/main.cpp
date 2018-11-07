@@ -22,51 +22,10 @@ int main()
 	{
 
 
-		TicTacToe3 ticchoice;
 
-		ticchoice.choose();
 
-		if (ticchoice.choice == 3)
-		{
-			TicTacToe3 tictactoe;
 
-			cout << "choose your peg (x or o): " << endl;
-			cin >> tictactoe.player;
-
-			tictactoe.start_game(tictactoe.player);
-
-			while (over == false)
-			{
-				cout << "choose which position you want to place your peg" << endl;
-				cout << "by typing the number and pressing enter" << endl;
-				cout << tictactoe;
-				cin >> tictactoe;
-				cout << tictactoe;
-				counter = counter + 1;
-				tictactoe.player = tictactoe.get_player(tictactoe.player);
-				over = tictactoe.game_over();
-
-			}
-
-			cout << "the game is over" << endl;
-			cout << "would you like to play again? " << endl << "if yes, press y" << endl;
-			cout << "if you want to quit, type q" << endl;
-			cin >> yesno;
-			
 		
-				//tictactoe.clearvector();
-			
-			over = false;
-			counter = 0;
-
-		}
-
-
-
-	
-		else if (ticchoice.choice == 4)
-		{
-			TicTacToe4 tictactoe;
 
 			cout << "choose your peg (x or o): " << endl;
 			cin >> tictactoe.player;
@@ -90,15 +49,13 @@ int main()
 			cout << "would you like to play again? " << endl << "if yes, press y" << endl;
 			cout << "if you want to quit, type q" << endl;
 			cin >> yesno;
-
-	
-				//tictactoe.clearvector();
-				
-	
+			
+			
 			over = false;
 			counter = 0;
 
-		}
+	
+
 		
 		
 	}

@@ -40,7 +40,7 @@ void TicTacToe::start_game(string player)
 {
 	next_player = player;
 	clear_board();
-	set_next_player();
+	//set_next_player();
 }
 
 

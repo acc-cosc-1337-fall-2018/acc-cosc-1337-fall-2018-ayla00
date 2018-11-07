@@ -11,7 +11,7 @@ class TManager :
 {
 public:
 	enum GameType { three = 0, four = 1 };
-	std::unique_ptr<TicTacToe> get_game(GameType type);
+	std::unique_ptr<TicTacToe> get_game(GameType& type);
 	void save_game(std::unique_ptr<TicTacToe>);
 	friend std::ostream& operator<<(std::ostream& out, TManager& t);
 	void get_win(string& value);

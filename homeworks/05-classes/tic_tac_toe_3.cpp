@@ -70,12 +70,6 @@ void TicTacToe3::display_board(std::ostream& out) const
 	out << "[7][8][9]" << "     " << '[' << pegs[6].val << ']' << '[' << pegs[7].val << ']' << '[' << pegs[8].val << ']' << std::endl;
 }
 
-int TicTacToe3::choose()
-{
-	std::cout << "enter your choice of 3 or 4 to play." << std::endl;
-	cin >> choice;
-	return choice;
-}
 
 
 std::ostream & operator<<(std::ostream& out, TicTacToe3& t)

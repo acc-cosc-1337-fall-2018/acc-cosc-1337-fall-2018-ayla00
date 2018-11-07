@@ -6,9 +6,10 @@
 #include <iostream>
 #include <memory>
 
-std::unique_ptr<TicTacToe> TManager::get_game(GameType type)
+std::unique_ptr<TicTacToe> TManager::get_game(GameType& type)
 {
 	std::unique_ptr<GameType> typeptr;
+
 	if (type == three)
 		typeptr = std::make_unique<TicTacToe3>();
 	else if (type == four)
