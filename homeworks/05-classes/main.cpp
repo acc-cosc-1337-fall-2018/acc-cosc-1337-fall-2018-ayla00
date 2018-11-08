@@ -39,6 +39,7 @@ int main()
 		cin >> yesno;
 		//std::unique_ptr<TManager> gg = std::make_unique<TManager>();
 		//gg->save_game(std::move(game));
+		cout << tm;
 
 
 	}
