@@ -11,12 +11,13 @@ using std::string; using std::vector;  using std::cin;
 class TicTacToe
 {
 public:
-	bool game_over();
-	void start_game(string player);
-	void mark_board(int position);
-	string get_player(string player);
-	virtual void display_board(std::ostream& out) const = 0;
 	string player;
+	bool game_over();
+	void start_game();
+	void mark_board(int position);
+	string get_player();
+	virtual void display_board(std::ostream& out) const = 0;
+	virtual void play_game() = 0;
 	int position;
 
 
@@ -30,7 +31,7 @@ protected:
 	void clear_board();
 	vector<Peg> pegs; //initialize vector in tictactoe3 and 4
 	virtual void get_input(std::istream& in) = 0;
-	
+
 };
 #endif //TIC_TAC_TOE_H
 

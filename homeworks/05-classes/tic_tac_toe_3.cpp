@@ -1,9 +1,15 @@
 #include "tic_tac_toe_3.h"
 #include "peg.h"
 #include "tic_tac_toe_board.h"
+#include "tic_tac_toe_manager.h"
 #include <iostream>
+#include <string>
+#include <vector>
 
+using std::string;
+using std::cout;
 using std::cin;
+using std::vector;
 
 TicTacToe3::TicTacToe3()
 {
@@ -98,4 +104,33 @@ bool TicTacToe3::check_board_full() const
 
 	}
 	return option;
+}
+
+
+void TicTacToe3::play_game()
+{
+
+	string player;
+	bool over = false;
+
+	TicTacToe3 tictactoe;
+
+	//std::cout << "choose your peg (x or o): " << std::endl;
+	//cin >> tictactoe.player;
+	start_game();
+
+	get_player();
+	while (over == false)
+	{
+		cout << "choose which position you want to place your peg" << std::endl;
+		cout << "by typing the number and pressing enter" << std::endl;
+		cout << tictactoe;
+		cin >> tictactoe;
+		cout << tictactoe;
+		tictactoe.player = tictactoe.get_player();
+		over = tictactoe.game_over();
+
+	}
+
+
 }

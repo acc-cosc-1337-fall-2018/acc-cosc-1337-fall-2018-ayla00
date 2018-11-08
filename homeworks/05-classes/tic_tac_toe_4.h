@@ -13,10 +13,10 @@ class TicTacToe4 : public TicTacToe
 public:
 	TicTacToe4();
 	//TicTacToe4(int place, string player) : next_player(player) {}
-	//TicTacToe4 operator+=(TicTacToe4&);
 	void display_board(std::ostream& out) const override;
 	friend std::istream & operator>> (std::istream& in, TicTacToe4& t);
 	friend std::ostream & operator<< (std::ostream& in, TicTacToe4& t);
+	void play_game();
 
 
 protected:
@@ -26,6 +26,7 @@ protected:
 	bool check_diagonal_win() const;
 	bool check_board_full() const;
 	void get_input(std::istream& in);
+
 
 };
 #endif //TIC_TAC_TOE_4_H
