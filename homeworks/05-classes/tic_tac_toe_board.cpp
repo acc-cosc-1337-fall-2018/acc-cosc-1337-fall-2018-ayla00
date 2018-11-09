@@ -12,7 +12,6 @@ using std::cout;
 using std::endl;
 using std::cin;
 
-
 bool TicTacToe::game_over()
 {
 	bool column = check_column_win();
@@ -41,12 +40,11 @@ void TicTacToe::start_game()
 {
 
 	clear_board();
-	std::cout << "choose your peg (x or o): " << std::endl;
-	cin >> player;
-	next_player = player;
+	//std::cout << "choose your peg (x or o): " << std::endl;
+	//cin >> player;
+	//next_player = player;
 
 }
-
 
 
 void TicTacToe::set_next_player()
@@ -68,7 +66,6 @@ void TicTacToe::clear_board()
 
 string TicTacToe::get_player()
 {
-
 	return next_player;
 }
 

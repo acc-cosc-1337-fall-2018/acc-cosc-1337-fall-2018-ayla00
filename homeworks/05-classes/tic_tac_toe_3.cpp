@@ -6,10 +6,10 @@
 #include <string>
 #include <vector>
 
-using std::string;
+//using std::string;
 using std::cout;
 using std::cin;
-using std::vector;
+//using std::vector;
 
 TicTacToe3::TicTacToe3()
 {
@@ -60,11 +60,11 @@ bool TicTacToe3::check_row_win() const
 		return false;
 }
 
+
 std::istream & operator>> (std::istream& in, TicTacToe3& t)
 {
 	t.get_input(in);
-	//in >> t.player;
-	//in >> t.place;
+	cout << "player: " << t.next_player << std::endl;
 	return in;
 }
 
@@ -81,15 +81,16 @@ void TicTacToe3::display_board(std::ostream& out) const
 std::ostream & operator<<(std::ostream& out, TicTacToe3& t)
 {
 	t.display_board(out);
-
 	return out;
 }
 
 void TicTacToe3::get_input(std::istream & in)
 {
-	std::cout << "enter position" << std::endl;
+	TicTacToe3 t;
+	//cout << "player: " << t.next_player << std::endl; this is not the same as tictactoe.player, is a dif. instance and wouldn't be defined
 	in >> position;
 	mark_board(position);
+
 }
 
 bool TicTacToe3::check_board_full() const
@@ -110,18 +111,18 @@ bool TicTacToe3::check_board_full() const
 void TicTacToe3::play_game()
 {
 
-	string player;
+	//string player;
 	bool over = false;
 
 	TicTacToe3 tictactoe;
 
-	//std::cout << "choose your peg (x or o): " << std::endl;
-	//cin >> tictactoe.player;
-	start_game();
+	std::cout << "choose your peg (x or o): " << std::endl;
+	cin >> tictactoe.player;
+	tictactoe.next_player = tictactoe.player;  //next_player acquires value here
 
-	get_player();
 	while (over == false)
 	{
+
 		cout << "choose which position you want to place your peg" << std::endl;
 		cout << "by typing the number and pressing enter" << std::endl;
 		cout << tictactoe;

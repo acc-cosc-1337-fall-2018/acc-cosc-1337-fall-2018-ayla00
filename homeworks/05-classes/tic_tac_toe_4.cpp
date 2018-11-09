@@ -111,18 +111,17 @@ bool TicTacToe4::check_board_full() const
 void TicTacToe4::play_game()
 {
 
-	//string player;
 	bool over = false;
 
 	TicTacToe4 tictactoe;
-	get_player();
-	//std::cout << "choose your peg (x or o): " << std::endl;
-	//cin >> tictactoe.player;
 
-	//tictactoe.start_game(tictactoe.player);
+	std::cout << "choose your peg (x or o): " << std::endl;
+	cin >> tictactoe.player;
+	tictactoe.next_player = tictactoe.player;
 
 	while (over == false)
 	{
+		tictactoe.player = tictactoe.get_player();
 		cout << "choose which position you want to place your peg" << std::endl;
 		cout << "by typing the number and pressing enter" << std::endl;
 		cout << tictactoe;

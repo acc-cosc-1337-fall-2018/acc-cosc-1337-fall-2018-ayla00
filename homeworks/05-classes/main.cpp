@@ -9,12 +9,11 @@
 using std::string; using std::vector; using std::endl; using std::cout; using std::cin;
 
 
-
 int main()
 {
 
 	string yesno = "p";
-	
+	//string player;
 	bool over = false;
 
 
@@ -27,7 +26,7 @@ int main()
 		auto g = tm.choose_game();
 
 		std::unique_ptr<TManager> gg = std::make_unique<TManager>();
-		auto game = gg->get_game(g);
+		auto game = gg->get_game(g);  //returns pointer to TicTacToe3 or TicTacToe4
 
 		//auto game = tm.get_game(g);
 		game->start_game();
@@ -37,11 +36,12 @@ int main()
 		cout << "would you like to play again? " << std::endl << "if yes, press y" << std::endl;
 		cout << "if you want to quit, type q" << std::endl;
 		cin >> yesno;
-		//std::unique_ptr<TManager> gg = std::make_unique<TManager>();
-		//gg->save_game(std::move(game));
-		cout << tm;
+
+		std::unique_ptr<TManager> gmanager = std::make_unique<TManager>();
+		gmanager->save_game(std::move(game));
+
+		cout << *gmanager;
 
 
 	}
 }
-
