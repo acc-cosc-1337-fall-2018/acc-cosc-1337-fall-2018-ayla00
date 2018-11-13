@@ -31,3 +31,4 @@ private:
 	std::unique_ptr<TicTacToeBoard> board;
 
 };
+#endif // !PANEL_H
