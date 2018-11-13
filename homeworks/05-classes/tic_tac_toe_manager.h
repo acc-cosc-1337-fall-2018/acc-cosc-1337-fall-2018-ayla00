@@ -16,15 +16,13 @@ public:
 	int type;
 	void save_game(std::unique_ptr<TicTacToe> tptr);
 	friend std::ostream& operator<<(std::ostream& out, TManager& t);
-	void get_win(string& value);
 	std::string value;
-	//void play();
 	int choose_game();
+	void update_winner_count(string& value);
 
 
 private:
 	std::vector<std::unique_ptr<TicTacToe>> boards;
-	void update_winner_count(string& value);
 	int x_win{ 0 };
 	int o_win{ 0 };
 	int c_win{ 0 };

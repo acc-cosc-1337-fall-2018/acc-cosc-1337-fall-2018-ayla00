@@ -13,12 +13,11 @@ int main()
 {
 
 	string yesno = "p";
-	//string player;
-	bool over = false;
-
 
 	while (yesno != "q")
 	{
+
+		bool over = false;
 
 		TManager tm;
 
@@ -28,9 +27,21 @@ int main()
 		std::unique_ptr<TManager> gg = std::make_unique<TManager>();
 		auto game = gg->get_game(g);  //returns pointer to TicTacToe3 or TicTacToe4
 
-		//auto game = tm.get_game(g);
 		game->start_game();
-		game->play_game();
+		game->player = game->get_player();
+
+		while (over == false)
+		{
+
+			cout << "choose which position you want to place your peg" << std::endl;
+			cout << "by typing the number and pressing enter" << std::endl;
+			cout << *game;  //game->display_board();
+			cin >> *game;
+			cout << *game;
+
+			over = game->game_over();
+
+		}
 
 		cout << "the game is over" << std::endl;
 		cout << "would you like to play again? " << std::endl << "if yes, press y" << std::endl;
@@ -42,6 +53,7 @@ int main()
 
 		cout << *gmanager;
 
-
 	}
+
+	return 0;
 }

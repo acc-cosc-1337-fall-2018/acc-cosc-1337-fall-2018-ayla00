@@ -15,19 +15,13 @@ public:
 	TicTacToe3();
 	//TicTacToe3(int place, string player) : next_player(player) {}
 	void display_board(std::ostream& out) const override;
-	friend std::istream & operator>> (std::istream& in, TicTacToe3& t);
-	friend std::ostream & operator<< (std::ostream& out, TicTacToe3& t);
-	void play_game() override;
+	void get_input(std::istream& in) override;
 
 protected:
 	bool check_column_win() const;
 	bool check_row_win() const;
 	bool check_diagonal_win() const;
 	bool check_board_full() const;
-	void get_input(std::istream& in);
-
-
-
 
 };
 #endif //TIC_TAC_TOE_3_H

@@ -14,10 +14,7 @@ public:
 	TicTacToe4();
 	//TicTacToe4(int place, string player) : next_player(player) {}
 	void display_board(std::ostream& out) const override;
-	friend std::istream & operator>> (std::istream& in, TicTacToe4& t);
-	friend std::ostream & operator<< (std::ostream& in, TicTacToe4& t);
-	void play_game();
-
+	void get_input(std::istream& in);
 
 protected:
 
@@ -25,7 +22,6 @@ protected:
 	bool check_row_win() const;
 	bool check_diagonal_win() const;
 	bool check_board_full() const;
-	void get_input(std::istream& in);
 
 
 };

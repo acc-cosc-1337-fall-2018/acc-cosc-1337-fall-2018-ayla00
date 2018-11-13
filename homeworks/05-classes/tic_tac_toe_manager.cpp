@@ -19,46 +19,62 @@ std::unique_ptr<TicTacToe> TManager::get_game(int type)
 
 void TManager::save_game(std::unique_ptr<TicTacToe> tptr)
 {
-	if (type == three)
-		boards.push_back(std::move(tptr));
-	else if (type == four)
-		boards.push_back(std::move(tptr));
-}
+	TManager tm;
+	std::unique_ptr<TManager> gg = std::make_unique<TManager>();
+	auto game = gg->get_game(tm.type);
 
-void TManager::get_win(string& value)
-{
-	std::cout << "value " << value << std::endl;
-	value = value;
-	update_winner_count(value);
-	std::cout << "wins " << x_win << std::endl;
+	boards.push_back(std::move(tptr));
+	string s = game->get_winner();
+	tm.update_winner_count(s);
+	std::cout << "value " << s << std::endl;
+	//tm.update_winner_count(value);
+
 }
 
 
 void TManager::update_winner_count(std::string& value)
 {
+
 	if (value == "x")
+	{
+		std::cout << "it's updating x " << std::endl;
 		x_win += 1;
+		o_win = o_win;
+		c_win = c_win;
+
+		std::cout << "x: " << x_win << std::endl;
+	}
 	else if (value == "o")
+	{
 		o_win += 1;
-	else
+		x_win = o_win;
+		c_win = c_win;
+		std::cout << "o: " << o_win << std::endl;
+	}
+	else if (value == "c")
+	{
 		c_win += 1;
+		x_win = o_win;
+		o_win = o_win;
+		std::cout << "c: " << c_win << std::endl;
+	}
 }
 
 std::ostream & operator<<(std::ostream& out, TManager& tm)
 {
 
+
 	auto s = tm.boards.size();
 	std::cout << "size " << s << std::endl;
-	//auto s = 1;
 
-	for (auto j = 0; j < s; j++)
+	for (unsigned j = 0; j < s; j++)
 	{
-		//tm.boards[j]->update_winner_count();
-		out << "wins: " << tm.boards[j] << std::endl;  //should be out << "wins: " << *tm.boards[j] << std::endl;
-
+		out << "wins: " << std::endl << *tm.boards[j] << std::endl;
+		//out << "wins: " << *tm.boards[j] << std::endl; shows me the actual board and values, the whole game
 	}
 
 
+	out << "x wins: " << tm.x_win << "\to wins: " << tm.o_win << "\tc wins: " << tm.c_win << std::endl;
 	return out;
 }
 
