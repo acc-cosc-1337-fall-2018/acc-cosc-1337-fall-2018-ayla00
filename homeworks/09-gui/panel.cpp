@@ -1,4 +1,5 @@
 #include "panel.h"
+#include "tic_tac_toe_manager.h"
 
 /*
 Class Constructor
@@ -11,7 +12,19 @@ STUDENT MUST WRITE CODE FOR THIS
 Panel::Panel(wxWindow* parent) 
 	: wxPanel(parent, -1)
 {
+	TManager tm;
 	//Create an instance of unique_ptr<TicTacToeBoard> using std::make_unique 
+
+	std::unique_ptr<TicTacToe> panelptr = std::make_unique<TicTacToe>;
+	panelptr->wxWindow*;
+	/*
+	std::unique_ptr<TicTacToe> panelptr;
+	if (tm.type == tm.three)
+		panelptr = std::make_unique<TicTacToe3>();
+	else if (tm.type == tm.four)
+		panelptr = std::make_unique<TicTacToe4>();
+		*/
+
 
 	auto vbox = new wxBoxSizer(wxVERTICAL);
 	auto top_horizontal_box = get_top_box_sizer();

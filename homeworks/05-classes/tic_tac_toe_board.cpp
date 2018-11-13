@@ -6,11 +6,7 @@
 #include<vector>
 #include<iostream>
 
-using std::vector;
-using std::string;
-using std::cout;
-using std::endl;
-using std::cin;
+using std::vector; using std::string; using std::cout; using std::endl; using std::cin;
 
 bool TicTacToe::game_over()
 {
@@ -103,4 +99,9 @@ std::istream & operator>> (std::istream& in, TicTacToe& t)
 	t.get_input(in);
 
 	return in;
+}
+
+vector<Peg>& TicTacToe::get_pegs() const
+{
+	return pegs;
 }

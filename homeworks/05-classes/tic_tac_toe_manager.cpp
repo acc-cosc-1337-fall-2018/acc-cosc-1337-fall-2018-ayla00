@@ -86,3 +86,9 @@ int TManager::choose_game()
 	cin >> choice;
 	return choice;
 }
+
+
+std::vector<std::unique_ptr<TicTacToe>>& TManager::get_games() const
+{
+	return boards;
+}
