@@ -15,8 +15,8 @@ Panel::Panel(wxWindow* parent) : wxPanel(parent, -1)
 		list_box->Append(option);
 	}
 
-	list_box->Append("Item 1");
-	list_box->Append("Item 2");
+	//list_box->Append("Item 1");
+	//list_box->Append("Item 2");
 	list_box->Bind(wxEVT_LISTBOX, &Panel::OnList, this);
 
 
