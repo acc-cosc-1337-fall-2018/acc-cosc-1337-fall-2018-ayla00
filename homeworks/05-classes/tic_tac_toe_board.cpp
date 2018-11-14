@@ -101,7 +101,7 @@ std::istream & operator>> (std::istream& in, TicTacToe& t)
 	return in;
 }
 
-vector<Peg>& TicTacToe::get_pegs() const
+const vector<Peg>& TicTacToe::get_pegs()
 {
 	return pegs;
 }

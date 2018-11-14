@@ -19,7 +19,7 @@ public:
 	std::string value;
 	int choose_game();
 	void update_winner_count(string& value);
-	std::vector <std::unique_ptr<TicTacToe>>& get_games() const;
+	const std::vector <std::unique_ptr<TicTacToe>>& get_games();
 
 
 private:

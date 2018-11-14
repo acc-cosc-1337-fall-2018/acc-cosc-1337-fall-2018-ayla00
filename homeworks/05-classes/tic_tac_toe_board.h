@@ -22,7 +22,7 @@ public:
 	friend std::ostream & operator<<(std::ostream& out, TicTacToe& t);
 	friend std::istream & operator>> (std::istream& in, TicTacToe& t);
 	virtual void get_input(std::istream& in) = 0;
-	vector<Peg>& get_pegs() const;
+	const vector<Peg>& get_pegs();
 
 protected:
 	string next_player;
