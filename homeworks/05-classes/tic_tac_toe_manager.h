@@ -7,22 +7,20 @@
 #include <string>
 #include "tic_tac_toe_board.h"
 
+enum GameType { three = 0, four = 1 };
 
 class TManager
 {
 public:
-	enum GameType { three = 0, four = 1 };
-	std::unique_ptr<TicTacToe> get_game(int type);
-	int type;
+	std::unique_ptr<TicTacToe> get_game(GameType type);
 	void save_game(std::unique_ptr<TicTacToe> tptr);
 	friend std::ostream& operator<<(std::ostream& out, TManager& t);
 	std::string value;
 	int choose_game();
-	void update_winner_count(string& value);
-	const std::vector <std::unique_ptr<TicTacToe>>& get_games();
 
 
 private:
+	void update_winner_count(string& value);
 	std::vector<std::unique_ptr<TicTacToe>> boards;
 	int x_win{ 0 };
 	int o_win{ 0 };

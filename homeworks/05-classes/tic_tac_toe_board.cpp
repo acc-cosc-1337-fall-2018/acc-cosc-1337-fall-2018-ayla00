@@ -8,30 +8,27 @@
 
 using std::vector; using std::string; using std::cout; using std::endl; using std::cin;
 
+
 bool TicTacToe::game_over()
 {
 	bool column = check_column_win();
 	bool row = check_row_win();
 	bool diagonal = check_diagonal_win();
 	bool full = check_board_full();
-	TManager tm;
+
 
 	if ((column == true) || (row == true) || (diagonal == true))
 	{
 		winner = pegs[position - 1].val;
-		//cout << "winner: " << winner << std::endl;
 		get_winner();
-		cout << "winner: " << winner << std::endl;
-		//tm.update_winner_count(w);
+
 		return true;
 	}
 	else if (full == true)
 	{
 		winner = "c";
 		get_winner();
-		cout << "winner: " << winner << std::endl;
-		//auto w = get_winner();
-		//tm.update_winner_count(w);
+
 		return true;
 	}
 	else
@@ -89,6 +86,7 @@ std::ostream & operator<<(std::ostream& out, TicTacToe& t)
 
 string TicTacToe::get_winner()
 {
+
 	return winner;
 }
 
