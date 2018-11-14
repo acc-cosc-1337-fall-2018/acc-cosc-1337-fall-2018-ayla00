@@ -73,7 +73,8 @@ std::ostream & operator<<(std::ostream& out, TManager& tm)
 int TManager::choose_game()
 {
 	int choice;
-	std::cout << "enter three if you want to play tictactoe 3 and four if tictactoe 4" << std::endl;
+	std::cout << "enter 3 if you want to play tictactoe 3" << std::endl;
+	std::cout << "enter 4 if you want to play tictactoe 4" << std::endl;
 	cin >> choice;
 	return choice;
 }
