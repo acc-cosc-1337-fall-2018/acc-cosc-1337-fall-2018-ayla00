@@ -13,18 +13,10 @@ Panel::Panel(wxWindow* parent)
 	: wxPanel(parent, -1)
 {
 	TManager tm;
-	//Create an instance of unique_ptr<TicTacToeBoard> using std::make_unique 
+	//Create an instance of unique_ptr<TicTacToeManager> using std::make_unique 
 
-	std::unique_ptr<TicTacToe> panelptr = std::make_unique<TicTacToe>;
+	std::unique_ptr<TManager> panelptr = std::make_unique<TManager>;
 	panelptr->wxWindow*;
-	/*
-	std::unique_ptr<TicTacToe> panelptr;
-	if (tm.type == tm.three)
-		panelptr = std::make_unique<TicTacToe3>();
-	else if (tm.type == tm.four)
-		panelptr = std::make_unique<TicTacToe4>();
-		*/
-
 
 	auto vbox = new wxBoxSizer(wxVERTICAL);
 	auto top_horizontal_box = get_top_box_sizer();
@@ -136,7 +128,8 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	{
 		//2) Gets a tic tac toe game from the TicTacToeManager class using the GameType enumeration
 		//tic_tac_toe_3 or tic_tac_toe_4 options.STUDENT MUST WRITE CODE FOR THIS
-
+		
+		manager->get_game(three);
 		tic_tac_toe_grid_4->Show(false);
 		tic_tac_toe_grid_3->Show(true);
 	}
@@ -144,7 +137,7 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	{
 		//3) Gets a tic tac toe game from the TicTacToeManager class using the GameType enumeration
 		//tic_tac_toe_3 or tic_tac_toe_4 options.STUDENT MUST WRITE CODE FOR THIS
-
+		manager->get_game(four);
 		tic_tac_toe_grid_3->Show(false);
 		tic_tac_toe_grid_4->Show(true);
 	}
@@ -152,7 +145,8 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	//STUDENT MUST WRITE CODE FOR THIS
 	//4) Check first_player_radio GetSelection to determine whether X or O goes first. 
 	//if radio button selection 0 call the board start game function with X or O
-	
+	if (first_player_radio->GetSelection() == "x")
+
 	auto btn = dynamic_cast<wxButton*>(event.GetEventObject());
 	btn->Disable();
 	this->Layout();
@@ -209,6 +203,18 @@ void Panel::on_list_box_click(wxCommandEvent& event)
 	//2) Write code get a const reference to one board using the history_list_box GetSelection function as 
 	//   the index for the boards vector
 	
+	//ref to one board
+	int b;
+	
+		for (b = 0; b < boards.size(); b++)
+		{
+			if (history_list_box->GetSelection() == b)
+			{
+				manager->boards[b];
+			}
+		}
+	
+	
 	wxGridSizer* sizer;
 
 	if (board->get_pegs().size() == 9) 
@@ -234,7 +240,7 @@ void Panel::on_list_box_click(wxCommandEvent& event)
 	}
 
 	//4)Write code to set the winner_text value to the board get_winner function
-
+	winner_text = board->get_winner();
 }
 
 /*
