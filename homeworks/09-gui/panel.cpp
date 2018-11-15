@@ -202,7 +202,8 @@ the final result of a previously played game.
 void Panel::on_list_box_click(wxCommandEvent& event) 
 {
 	//1) Write code to get a const reference to a vector of boards by calling the manager get_games function
-
+	auto reference = manager->get_games();
+	reference->boards;
 	//2) Write code get a const reference to one board using the history_list_box GetSelection function as 
 	//   the index for the boards vector
 	
