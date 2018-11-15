@@ -18,6 +18,7 @@ public:
 	friend std::ostream& operator<<(std::ostream& out, TManager& t);
 	std::string value;
 	int choose_game();
+	const std::vector<std::unique_ptr<TicTacToe>>& get_games();
 
 
 private:
