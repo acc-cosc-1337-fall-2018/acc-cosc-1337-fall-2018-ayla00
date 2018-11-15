@@ -175,7 +175,7 @@ TEST_CASE("Test first player to x", "[returns o]")
 {
 	TicTacToe3 board;
 	board.start_game("x");
-	board.set_next_player();
+	board.mark_board(2);
 
 	REQUIRE(board.get_player() == "o");
 }
@@ -184,7 +184,7 @@ TEST_CASE("Test first player to o", "[returns x]")
 {
 	TicTacToe3 board;
 	board.start_game("o");
-	board.set_next_player;
+	board.mark_board(2);
 
 
 	REQUIRE(board.get_player() == "x");
@@ -428,7 +428,7 @@ TEST_CASE("4 - Test first player to x", "[returns o]")
 	
 	TicTacToe4 board;
 	board.start_game("x");
-	board.set_next_player();
+	board.mark_board(2);
 
 	REQUIRE(board.get_player() == "o");
 }
@@ -437,7 +437,7 @@ TEST_CASE("4 - Test first player to o", "[returns x]")
 {
 	TicTacToe4 board;
 	board.start_game("x");
-	board.set_next_player();
+	board.mark_board(2);
 
 
 	REQUIRE(board.get_player() == "o");
