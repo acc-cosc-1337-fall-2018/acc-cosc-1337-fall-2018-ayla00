@@ -146,6 +146,9 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	//4) Check first_player_radio GetSelection to determine whether X or O goes first. 
 	//if radio button selection 0 call the board start game function with X or O
 	if (first_player_radio->GetSelection() == "x")
+		board->start_game("x");
+	else if (first_player_radio->GetSelection() == "o")
+		board->start_game("o");
 
 	auto btn = dynamic_cast<wxButton*>(event.GetEventObject());
 	btn->Disable();

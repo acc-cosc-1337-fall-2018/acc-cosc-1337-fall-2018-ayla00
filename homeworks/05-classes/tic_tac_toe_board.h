@@ -13,7 +13,7 @@ class TicTacToe
 public:
 	string player;
 	bool game_over();
-	void start_game();
+	void start_game(string player);
 	void mark_board(int position);
 	string get_player();
 	virtual void display_board(std::ostream& out) const = 0;

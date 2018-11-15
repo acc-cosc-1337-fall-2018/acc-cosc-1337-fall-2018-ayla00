@@ -36,12 +36,12 @@ bool TicTacToe::game_over()
 }
 
 
-void TicTacToe::start_game()
+void TicTacToe::start_game(string player)
 {
 
 	clear_board();
-	cout << "choose your peg (x or o): " << std::endl;
-	cin >> player;
+	//cout << "choose your peg (x or o): " << std::endl;
+	//cin >> player;
 	get_player();
 
 }
