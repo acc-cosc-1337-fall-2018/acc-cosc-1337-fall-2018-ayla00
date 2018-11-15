@@ -42,6 +42,7 @@ void TicTacToe::start_game(string player)
 	clear_board();
 	//cout << "choose your peg (x or o): " << std::endl;
 	//cin >> player;
+	next_player = player;
 	get_player();
 
 }
@@ -68,7 +69,7 @@ void TicTacToe::clear_board()
 
 string TicTacToe::get_player()
 {
-	next_player = player;
+	//next_player = player;
 	return next_player;
 }
 

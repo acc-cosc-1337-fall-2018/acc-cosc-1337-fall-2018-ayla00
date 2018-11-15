@@ -8,8 +8,7 @@
 TEST_CASE("test win by first column", "[x wins first column]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(1); //x
 	board.mark_board(3);//o
 	board.mark_board(4);//x
@@ -25,8 +24,7 @@ TEST_CASE("test win by first column", "[x wins first column]")
 TEST_CASE("test win by second column", "[x wins second column]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(2);//x
 	board.mark_board(4); //o
 	board.mark_board(5);//x
@@ -42,8 +40,7 @@ TEST_CASE("test win by second column", "[x wins second column]")
 TEST_CASE("test win by third column", "[x wins third column]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(3);//x
 	board.mark_board(4); //o
 	board.mark_board(6);//x
@@ -59,8 +56,7 @@ TEST_CASE("test win by third column", "[x wins third column]")
 TEST_CASE("test win by first row", "[x wins first row]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(1);//x
 	board.mark_board(4); //o
 	board.mark_board(2);//x
@@ -77,8 +73,7 @@ TEST_CASE("test win by secon row", "[x wins second row]")
 {
 	
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(4);//x
 	board.mark_board(3); //o
 	board.mark_board(5);//x
@@ -94,8 +89,7 @@ TEST_CASE("test win by secon row", "[x wins second row]")
 TEST_CASE("test win by third row", "[x wins third row]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(7);//x
 	board.mark_board(4); //o
 	board.mark_board(8);//x
@@ -111,8 +105,7 @@ TEST_CASE("test win by third row", "[x wins third row]")
 TEST_CASE("test win diagonally from top left", "[x wins diagonally]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(1);//x
 	board.mark_board(4); //o
 	board.mark_board(5);//x
@@ -128,8 +121,7 @@ TEST_CASE("test win diagonally from top left", "[x wins diagonally]")
 TEST_CASE("test win diagonally from bottom left", "[x wins diagonally]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(3);//x
 	board.mark_board(4); //o
 	board.mark_board(5);//x
@@ -145,8 +137,7 @@ TEST_CASE("test win diagonally from bottom left", "[x wins diagonally]")
 TEST_CASE("test no winner", "[x no win]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(1);//x
 	board.mark_board(2); //o
 	board.mark_board(3);//x
@@ -167,8 +158,7 @@ TEST_CASE("Test game over o", "[returns ?]")
 {
 	
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(3);//o
 	board.mark_board(4); //x
 	board.mark_board(5);//o
@@ -184,9 +174,8 @@ TEST_CASE("Test game over o", "[returns ?]")
 TEST_CASE("Test first player to x", "[returns o]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "x";
-	board.get_player();
+	board.start_game("x");
+	board.set_next_player();
 
 	REQUIRE(board.get_player() == "o");
 }
@@ -194,10 +183,9 @@ TEST_CASE("Test first player to x", "[returns o]")
 TEST_CASE("Test first player to o", "[returns x]")
 {
 	TicTacToe3 board;
-	board.start_game();
-	board.player = "o";
-	board.get_player();
-	
+	board.start_game("o");
+	board.set_next_player;
+
 
 	REQUIRE(board.get_player() == "x");
 }
@@ -210,8 +198,7 @@ TEST_CASE("Test first player to o", "[returns x]")
 TEST_CASE("4 - test win by first column", "[x wins first column]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(1); //x
 	board.mark_board(3);//o
 	board.mark_board(5);//x
@@ -229,8 +216,7 @@ TEST_CASE("4 - test win by first column", "[x wins first column]")
 TEST_CASE("4 - test win by second column", "[x wins second column]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(2);//x
 	board.mark_board(4); //o
 	board.mark_board(6);//x
@@ -248,8 +234,7 @@ TEST_CASE("4 - test win by second column", "[x wins second column]")
 TEST_CASE("4 - test win by third column", "[x wins third column]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(3);//x
 	board.mark_board(4); //o
 	board.mark_board(7);//x
@@ -268,8 +253,7 @@ TEST_CASE("4 - test win by third column", "[x wins third column]")
 TEST_CASE("4 - test win by fourth column", "[x wins third column]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(4);//x
 	board.mark_board(1); //o
 	board.mark_board(8);//x
@@ -289,8 +273,7 @@ TEST_CASE("4 - test win by first row", "[x wins first row]")
 {
 	
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(1);//x
 	board.mark_board(5); //o
 	board.mark_board(2);//x
@@ -308,8 +291,7 @@ TEST_CASE("4 - test win by first row", "[x wins first row]")
 TEST_CASE("4 - test win by secon row", "[x wins second row]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(5);//x
 	board.mark_board(2); //o
 	board.mark_board(6);//x
@@ -327,8 +309,7 @@ TEST_CASE("4 - test win by secon row", "[x wins second row]")
 TEST_CASE("4 - test win by third row", "[x wins third row]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(9);//x
 	board.mark_board(4); //o
 	board.mark_board(10);//x
@@ -346,8 +327,7 @@ TEST_CASE("4 - test win by third row", "[x wins third row]")
 TEST_CASE("4 - test win by fourth row", "[x wins third row]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(13);//x
 	board.mark_board(4); //o
 	board.mark_board(14);//x
@@ -365,8 +345,7 @@ TEST_CASE("4 - test win by fourth row", "[x wins third row]")
 TEST_CASE("4 - test win diagonally from top left", "[x wins diagonally]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(1);//x
 	board.mark_board(4); //o
 	board.mark_board(6);//x
@@ -384,8 +363,7 @@ TEST_CASE("4 - test win diagonally from top left", "[x wins diagonally]")
 TEST_CASE("4 - test win diagonally from bottom left", "[x wins diagonally]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(4);//x
 	board.mark_board(1); //o
 	board.mark_board(7);//x
@@ -403,8 +381,7 @@ TEST_CASE("4 - test win diagonally from bottom left", "[x wins diagonally]")
 TEST_CASE("4 - test no winner", "[x no win]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
 	board.mark_board(1);//x
 	board.mark_board(2); //o
 	board.mark_board(5);//x
@@ -450,8 +427,8 @@ TEST_CASE("4 - Test first player to x", "[returns o]")
 {
 	
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "x";
+	board.start_game("x");
+	board.set_next_player();
 
 	REQUIRE(board.get_player() == "o");
 }
@@ -459,9 +436,9 @@ TEST_CASE("4 - Test first player to x", "[returns o]")
 TEST_CASE("4 - Test first player to o", "[returns x]")
 {
 	TicTacToe4 board;
-	board.start_game();
-	board.player = "o";
+	board.start_game("x");
+	board.set_next_player();
 
 
-	REQUIRE(board.get_player() == "x");
+	REQUIRE(board.get_player() == "o");
 }
