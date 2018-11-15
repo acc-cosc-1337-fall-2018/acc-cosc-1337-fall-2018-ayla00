@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <wx/wx.h>
 
 using std::string; using std::vector; using std::endl; using std::cout; using std::cin;
 
