@@ -12,7 +12,7 @@ STUDENT MUST WRITE CODE FOR THIS
 Panel::Panel(wxWindow* parent) 
 	: wxPanel(parent, -1)
 {
-	TManager tm;
+	//TManager tm;
 	//Create an instance of unique_ptr<TicTacToeManager> using std::make_unique 
 
 	std::unique_ptr<TManager> panelptr = std::make_unique<TManager>;
