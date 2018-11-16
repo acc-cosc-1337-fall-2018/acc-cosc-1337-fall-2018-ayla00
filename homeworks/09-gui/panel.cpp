@@ -16,7 +16,7 @@ Panel::Panel(wxWindow* parent)
 	//Create an instance of unique_ptr<TicTacToeManager> using std::make_unique 
 
 	std::unique_ptr<TManager> panelptr = std::make_unique<TManager>;
-	panelptr->wxWindow*;
+	//panelptr->wxWindow*;
 
 	auto vbox = new wxBoxSizer(wxVERTICAL);
 	auto top_horizontal_box = get_top_box_sizer();
@@ -145,9 +145,9 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	//STUDENT MUST WRITE CODE FOR THIS
 	//4) Check first_player_radio GetSelection to determine whether X or O goes first. 
 	//if radio button selection 0 call the board start game function with X or O
-	if (first_player_radio->GetSelection() == "x")
+	if (first_player_radio->GetSelection() == 0)
 		board->start_game("x");
-	else if (first_player_radio->GetSelection() == "o")
+	else if (first_player_radio->GetSelection() == 1)
 		board->start_game("o");
 
 	auto btn = dynamic_cast<wxButton*>(event.GetEventObject());
@@ -202,6 +202,7 @@ the final result of a previously played game.
 void Panel::on_list_box_click(wxCommandEvent& event) 
 {
 	//1) Write code to get a const reference to a vector of boards by calling the manager get_games function
+	auto gtype = board->type;
 	auto reference = manager->get_games(manager->type);
 	reference->boards;
 	//2) Write code get a const reference to one board using the history_list_box GetSelection function as 
@@ -210,7 +211,7 @@ void Panel::on_list_box_click(wxCommandEvent& event)
 	//ref to one board
 	int b;
 	
-		for (b = 0; b < boards.size(); b++)
+		for (b = 0; b < manager->boards.size(); b++)
 		{
 			if (history_list_box->GetSelection() == b)
 			{

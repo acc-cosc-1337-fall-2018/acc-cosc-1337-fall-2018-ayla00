@@ -27,8 +27,8 @@ private:
 	wxListBox* history_list_box;
 	wxTextCtrl* winner_text;
 
-	std::unique_ptr<TicTacToeManager> manager;
-	std::unique_ptr<TicTacToeBoard> board;
+	std::unique_ptr<TManager> manager;
+	std::unique_ptr<TicTacToe> board;
 
 };
 #endif // !PANEL_H
