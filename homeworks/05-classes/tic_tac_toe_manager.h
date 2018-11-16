@@ -13,7 +13,7 @@ enum GameType { three = 0, four = 1 };
 class TManager
 {
 public:
-	Gametype type;
+	GameType type;
 	std::unique_ptr<TicTacToe> get_game(GameType type);
 	void save_game(std::unique_ptr<TicTacToe> tptr);
 	friend std::ostream& operator<<(std::ostream& out, TManager& t);
