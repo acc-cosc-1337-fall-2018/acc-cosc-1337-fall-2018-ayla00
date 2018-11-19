@@ -5,7 +5,7 @@
 Class Constructor
 
 STUDENT MUST WRITE CODE FOR THIS
-1) Create an instance of unique_ptr<TicTacToeBoard> using std::make_unique
+1) Create an instance of unique_ptr<TicTacToeManager> using std::make_unique
 
 @param wxWindow* the parent window for the Panel class
 */
@@ -15,7 +15,7 @@ Panel::Panel(wxWindow* parent)
 	//TManager tm;
 	//Create an instance of unique_ptr<TicTacToeManager> using std::make_unique 
 
-	std::unique_ptr<TManager> panelptr = std::make_unique<TManager>;
+	manager = std::make_unique<TManager>();
 	//panelptr->wxWindow*;
 
 	auto vbox = new wxBoxSizer(wxVERTICAL);
@@ -202,23 +202,11 @@ the final result of a previously played game.
 void Panel::on_list_box_click(wxCommandEvent& event)
 {
 	//1) Write code to get a const reference to a vector of boards by calling the manager get_games function
-	auto gtype = board->type;
-	auto reference = manager->get_games(manager->type);
-	reference->boards;
+	const std::vector<std::unique_ptr<TicTacToe>>& boards = manager->get_games();
+	
 	//2) Write code get a const reference to one board using the history_list_box GetSelection function as 
 	//   the index for the boards vector
-
-	//ref to one board
-	int b;
-
-	for (b = 0; b < manager->boards.size(); b++)
-	{
-		if (history_list_box->GetSelection() == b)
-		{
-			manager->boards[b];
-		}
-	}
-
+	const std::unique_ptr<TicTacToe>& board = boards[history_list_box->GetSelection()];
 
 	wxGridSizer* sizer;
 
@@ -245,7 +233,7 @@ void Panel::on_list_box_click(wxCommandEvent& event)
 	}
 
 	//4)Write code to set the winner_text value to the board get_winner function
-	winner_text = board->get_winner();
+	winner_text->SetValue(board->get_winner());
 }
 
 /*
