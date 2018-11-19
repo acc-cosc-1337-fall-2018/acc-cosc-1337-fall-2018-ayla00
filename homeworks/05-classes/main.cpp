@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <wx/wx.h>
 
 
 using std::string; using std::vector; using std::endl; using std::cout; using std::cin;
@@ -29,10 +30,10 @@ int main()
 		if (gametype == 3)
 		{
 			auto game = gmanager_ptr->get_game(three);  //returns pointer to TicTacToe3 or TicTacToe4
-			
+
 			game->player = "x";
 			game->start_game(game->player);
-			
+
 
 			while (over == false)
 			{
@@ -61,7 +62,7 @@ int main()
 		else if (gametype == 4)
 		{
 			auto game = gmanager_ptr->get_game(four);
-		
+
 			game->player = "x";
 			game->start_game(game->player);
 
