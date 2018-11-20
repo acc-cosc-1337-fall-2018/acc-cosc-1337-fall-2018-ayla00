@@ -1,22 +1,14 @@
 #include "panel.h"
-#include "tic_tac_toe_manager.h"
 
 /*
 Class Constructor
-
-STUDENT MUST WRITE CODE FOR THIS
-1) Create an instance of unique_ptr<TicTacToeManager> using std::make_unique
 
 @param wxWindow* the parent window for the Panel class
 */
 Panel::Panel(wxWindow* parent)
 	: wxPanel(parent, -1)
 {
-	//TManager tm;
-	//Create an instance of unique_ptr<TicTacToeManager> using std::make_unique 
-
-	manager = std::make_unique<TManager>();
-	//panelptr->wxWindow*;
+	manager = std::make_unique<TicTacToeManager>();
 
 	auto vbox = new wxBoxSizer(wxVERTICAL);
 	auto top_horizontal_box = get_top_box_sizer();
@@ -27,10 +19,15 @@ Panel::Panel(wxWindow* parent)
 	tic_tac_toe_grid_4 = get_grid_sizer(4);
 	tic_tac_toe_grid_4->Show(false);
 
+	//add code here to iterate manager get_games vector and append a value
+	//to history_list_box for each game in vector
+
 	vbox->Add(top_horizontal_box, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
 	vbox->Add(mid_horizontal_box, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
 	vbox->Add(tic_tac_toe_grid_3, 0, wxALIGN_RIGHT | wxTOP | wxRIGHT | wxBOTTOM, 10);
 	vbox->Add(tic_tac_toe_grid_4, 0, wxALIGN_RIGHT | wxTOP | wxRIGHT | wxBOTTOM, 10);
+
+	set_winner_labels();
 
 	SetSizer(vbox);
 }
@@ -55,9 +52,29 @@ wxBoxSizer * Panel::get_top_box_sizer()
 	history_list_box = new wxListBox(this, -1, wxPoint(-1, -1), wxSize(-1, -1));
 	history_list_box->Bind(wxEVT_LISTBOX, &Panel::on_list_box_click, this);
 
+	auto hbox1 = new wxBoxSizer(wxVERTICAL);
+
+	auto label1 = new wxStaticText(this, wxID_ANY, wxT("X: "),
+		wxDefaultPosition, wxSize(70, -1));
+	auto label2 = new wxStaticText(this, wxID_ANY, wxT("O: "),
+		wxDefaultPosition, wxSize(70, -1));
+	auto label3 = new wxStaticText(this, wxID_ANY, wxT("C: "),
+		wxDefaultPosition, wxSize(70, -1));
+
+	x_winner_label = new wxTextCtrl(this, wxID_ANY);
+	o_winner_label = new wxTextCtrl(this, wxID_ANY);
+	c_winner_label = new wxTextCtrl(this, wxID_ANY);
+
 	hbox0->Add(game_type_radio);
 	hbox0->Add(first_player_radio);
 	hbox0->Add(history_list_box);
+	hbox1->Add(label1);
+	hbox1->Add(x_winner_label);
+	hbox1->Add(label2);
+	hbox1->Add(o_winner_label);
+	hbox1->Add(label3);
+	hbox1->Add(c_winner_label);
+	hbox0->Add(hbox1);
 
 	return hbox0;
 }
@@ -128,8 +145,7 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	{
 		//2) Gets a tic tac toe game from the TicTacToeManager class using the GameType enumeration
 		//tic_tac_toe_3 or tic_tac_toe_4 options.STUDENT MUST WRITE CODE FOR THIS
-
-		manager->get_game(three);
+		board = manager->get_game(tic_tac_toe_3);
 		tic_tac_toe_grid_4->Show(false);
 		tic_tac_toe_grid_3->Show(true);
 	}
@@ -137,18 +153,21 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	{
 		//3) Gets a tic tac toe game from the TicTacToeManager class using the GameType enumeration
 		//tic_tac_toe_3 or tic_tac_toe_4 options.STUDENT MUST WRITE CODE FOR THIS
-		manager->get_game(four);
+		board = manager->get_game(tic_tac_toe_4);
 		tic_tac_toe_grid_3->Show(false);
 		tic_tac_toe_grid_4->Show(true);
 	}
 
-	//STUDENT MUST WRITE CODE FOR THIS
-	//4) Check first_player_radio GetSelection to determine whether X or O goes first. 
+	//4) Check first_player_radio to determine whether X or O goes first. STUDENT MUST WRITE CODE FOR THIS
 	//if radio button selection 0 call the board start game function with X or O
 	if (first_player_radio->GetSelection() == 0)
-		board->start_game("x");
+	{
+		board->start_game("X");
+	}
 	else if (first_player_radio->GetSelection() == 1)
-		board->start_game("o");
+	{
+		board->start_game("O");
+	}
 
 	auto btn = dynamic_cast<wxButton*>(event.GetEventObject());
 	btn->Disable();
@@ -181,6 +200,7 @@ void Panel::on_peg_button_click(wxCommandEvent & event)
 		winner_text->SetLabel(board->get_winner());
 		start_button->Enable();
 		manager->save_game(std::move(board));
+		set_winner_labels();
 	}
 }
 
@@ -201,12 +221,11 @@ the final result of a previously played game.
 */
 void Panel::on_list_box_click(wxCommandEvent& event)
 {
-	//1) Write code to get a const reference to a vector of boards by calling the manager get_games function
-	const std::vector<std::unique_ptr<TicTacToe>>& boards = manager->get_games();
-	
-	//2) Write code get a const reference to one board using the history_list_box GetSelection function as 
+	//1) Write code to get a reference to a vector of boards by calling the manager get_games function
+	std::vector<std::unique_ptr<TicTacToeBoard>>const& boards = manager->get_games();
+	//2) Write code get a references to one board using the history_list_box GetSelection function as 
 	//   the index for the boards vector
-	const std::unique_ptr<TicTacToe>& board = boards[history_list_box->GetSelection()];
+	std::unique_ptr<TicTacToeBoard>const& board = boards[history_list_box->GetSelection()];
 
 	wxGridSizer* sizer;
 
@@ -234,6 +253,8 @@ void Panel::on_list_box_click(wxCommandEvent& event)
 
 	//4)Write code to set the winner_text value to the board get_winner function
 	winner_text->SetValue(board->get_winner());
+	set_winner_labels();
+	this->Layout();
 }
 
 /*
@@ -250,4 +271,13 @@ void Panel::set_button_properties(wxGridSizer* sizer)
 		item->GetWindow()->Enable();
 		i++;
 	}
+}
+
+void Panel::set_winner_labels()
+{
+	int x, o, c;
+	manager->get_winner_totals(x, o, c);
+	//add code here to update winner_label values
+
+	this->Layout();
 }
