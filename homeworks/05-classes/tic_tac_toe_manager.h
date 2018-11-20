@@ -6,7 +6,7 @@
 #include <memory>
 #include <string>
 #include "tic_tac_toe_board.h"
-//#include "tic_tac_toe_data.h"
+#include "tic_tac_toe_data.h"
 
 
 enum GameType { three = 0, four = 1 };
@@ -14,6 +14,7 @@ enum GameType { three = 0, four = 1 };
 class TManager
 {
 public:
+	TManager() = default;
 	GameType type;
 	std::unique_ptr<TicTacToe> get_game(GameType type);
 	void save_game(std::unique_ptr<TicTacToe> tptr);
@@ -24,7 +25,7 @@ public:
 	void get_winner_totals(int& x, int& o, int& c);
 
 private:
-	void update_winner_count(string& value);
+	void update_winner_count(std::string& value);
 	std::vector<std::unique_ptr<TicTacToe>> boards;
 	int x_win{ 0 };
 	int o_win{ 0 };
