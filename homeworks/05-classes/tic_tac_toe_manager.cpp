@@ -84,3 +84,10 @@ const std::vector<std::unique_ptr<TicTacToe>>& TManager::get_games()
 {
 	return boards;
 }
+
+void TManager::get_winner_totals(int & x, int & o, int & c)
+{
+	x = x_win;
+	o = o_win;
+	c = c_win;
+}

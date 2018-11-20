@@ -22,8 +22,8 @@ TicTacToe3::TicTacToe3()
 
 TicTacToe3::TicTacToe3(vector<Peg> p)
 {
-	pegs = p;
-}
+	pegs = p; //do I have to include a loop like the constructor above?
+}             // i don't think so, p should be a vector so no need for loop  
 
 
 bool TicTacToe3::check_column_win() const

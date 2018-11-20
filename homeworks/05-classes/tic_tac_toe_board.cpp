@@ -1,13 +1,14 @@
 #include "tic_tac_toe_board.h"
-//#include "tic_tac_toe_3.h"
 #include "peg.h"
 #include "tic_tac_toe_manager.h"
 #include <string>
-#include<vector>
-#include<iostream>
+#include <vector>
+#include <iostream>
 
 using std::vector; using std::string; using std::cout; using std::endl; using std::cin;
 
+
+TicTacToe::TicTacToe(vector<Peg> p) : pegs(p) {};
 
 bool TicTacToe::game_over()
 {
@@ -20,14 +21,14 @@ bool TicTacToe::game_over()
 	if ((column == true) || (row == true) || (diagonal == true))
 	{
 		winner = pegs[position - 1].val;
-		get_winner();
+		//get_winner();
 
 		return true;
 	}
 	else if (full == true)
 	{
 		winner = "c";
-		get_winner();
+		//get_winner();
 
 		return true;
 	}

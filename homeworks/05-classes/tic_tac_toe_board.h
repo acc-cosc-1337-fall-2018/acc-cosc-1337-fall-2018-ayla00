@@ -13,6 +13,8 @@ using std::string; using std::vector;  using std::cin;
 class TicTacToe
 {
 public:
+	TicTacToe() = default;
+	TicTacToe(vector<Peg> p);
 	string player;
 	bool game_over();
 	void start_game(string player);
