@@ -8,7 +8,7 @@ Class Constructor
 Panel::Panel(wxWindow* parent)
 	: wxPanel(parent, -1)
 {
-	manager = std::make_unique<TicTacToeManager>();
+	manager = std::make_unique<TManager>();
 
 	auto vbox = new wxBoxSizer(wxVERTICAL);
 	auto top_horizontal_box = get_top_box_sizer();
@@ -145,7 +145,7 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	{
 		//2) Gets a tic tac toe game from the TicTacToeManager class using the GameType enumeration
 		//tic_tac_toe_3 or tic_tac_toe_4 options.STUDENT MUST WRITE CODE FOR THIS
-		board = manager->get_game(tic_tac_toe_3);
+		board = manager->get_game(three);
 		tic_tac_toe_grid_4->Show(false);
 		tic_tac_toe_grid_3->Show(true);
 	}
@@ -153,7 +153,7 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	{
 		//3) Gets a tic tac toe game from the TicTacToeManager class using the GameType enumeration
 		//tic_tac_toe_3 or tic_tac_toe_4 options.STUDENT MUST WRITE CODE FOR THIS
-		board = manager->get_game(tic_tac_toe_4);
+		board = manager->get_game(four);
 		tic_tac_toe_grid_3->Show(false);
 		tic_tac_toe_grid_4->Show(true);
 	}
@@ -222,10 +222,10 @@ the final result of a previously played game.
 void Panel::on_list_box_click(wxCommandEvent& event)
 {
 	//1) Write code to get a reference to a vector of boards by calling the manager get_games function
-	std::vector<std::unique_ptr<TicTacToeBoard>>const& boards = manager->get_games();
+	std::vector<std::unique_ptr<TicTacToe>>const& boards = manager->get_games();
 	//2) Write code get a references to one board using the history_list_box GetSelection function as 
 	//   the index for the boards vector
-	std::unique_ptr<TicTacToeBoard>const& board = boards[history_list_box->GetSelection()];
+	std::unique_ptr<TicTacToe>const& board = boards[history_list_box->GetSelection()];
 
 	wxGridSizer* sizer;
 
