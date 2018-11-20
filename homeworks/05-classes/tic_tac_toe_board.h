@@ -5,7 +5,7 @@
 #include <vector>
 #include <iostream>
 #include "peg.h"
-#include <wx/wx.h>
+
 
 
 using std::string; using std::vector;  using std::cin;

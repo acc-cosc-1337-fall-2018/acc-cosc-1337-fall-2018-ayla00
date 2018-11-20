@@ -17,6 +17,11 @@ TicTacToe4::TicTacToe4()
 	}
 }
 
+TicTacToe4::TicTacToe4(vector<Peg> p)
+{
+	pegs = p;
+}
+
 
 bool TicTacToe4::check_column_win() const
 {

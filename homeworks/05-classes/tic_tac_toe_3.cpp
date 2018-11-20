@@ -20,6 +20,11 @@ TicTacToe3::TicTacToe3()
 	}
 }
 
+TicTacToe3::TicTacToe3(vector<Peg> p)
+{
+	pegs = p;
+}
+
 
 bool TicTacToe3::check_column_win() const
 {

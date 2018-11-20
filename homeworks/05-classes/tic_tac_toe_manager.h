@@ -6,7 +6,7 @@
 #include <memory>
 #include <string>
 #include "tic_tac_toe_board.h"
-#include <wx/wx.h>
+
 
 
 enum GameType { three = 0, four = 1 };

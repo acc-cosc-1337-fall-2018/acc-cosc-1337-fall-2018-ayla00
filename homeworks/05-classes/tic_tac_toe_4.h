@@ -12,7 +12,7 @@ class TicTacToe4 : public TicTacToe
 {
 public:
 	TicTacToe4();
-	//TicTacToe4(int place, string player) : next_player(player) {}
+	TicTacToe4(vector<Peg> p);
 	void display_board(std::ostream& out) const override;
 	void get_input(std::istream& in);
 

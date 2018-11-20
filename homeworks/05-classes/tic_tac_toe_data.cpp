@@ -1,0 +1,55 @@
+#include "tic_tac_toe_data.h"
+
+
+std::vector<std::unique_ptr<TicTacToe>> TicTacToeData::get_games()
+{
+	//std::string ticline;
+	auto ticline;
+	std::string ticstring;
+	std::ifstream file_name;
+	file_name.open("tic_tac_toe.dat", ios::in);  //open file
+
+	std::unique_ptr<TicTacToe> board;
+
+	while (getline(file_name, ticline))  //get a line from file & while file open (may need to use is_open())
+	{
+		//std::vector<Peg> vectorpeg
+		auto t = ticline.size();
+		for (unsigned j = 0; j < t; j++)  //for each character in line
+		{
+			ticstring = ticline[j];  //create string with character
+			pegs[j] = ticstring;   //add peg to vector of pegs
+		}
+	}
+
+	if (t == 9)  //create unique pointer of tictactoe
+	{
+		board = std::make_unique<TicTacToe3>;
+		boards.push_back(std::move(board));
+	}
+	else
+	{
+		board = std::make_unique<TicTacToe4>;
+		boards.push_back(std::move(board));
+	}
+
+	file_name.close();  //close the file
+
+	return boards;  //return the boards vector
+}
+
+
+void TicTacToeData::save_pegs(std::vector<Peg>& pegs)
+{
+	auto s = pegs.size();
+	file_name.open("tic_tac_toe.dat", ios::out | ios::binary | ios:app);
+	std::ofstream file_name;
+
+	for (unsigned i = 0; i < s; i++)
+	{
+		file_name << pegs[i];
+	}
+
+	file_name << "\n";
+	file_name.close();
+}
