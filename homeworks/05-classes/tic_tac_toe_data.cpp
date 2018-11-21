@@ -11,6 +11,9 @@ std::vector<std::unique_ptr<TicTacToe>> TicTacToeData::get_games()
 	unsigned t;
 
 	std::unique_ptr<TicTacToe> board;
+	std::unique_ptr<TManager> tmanager = std::make_unique<TManager>();
+
+	auto boards = tmanager->get_games(); //gets get_games from TManager
 
 	while (getline(file_name, ticline))  //get a line from file & while file open (may need to use is_open())
 	{
@@ -28,17 +31,17 @@ std::vector<std::unique_ptr<TicTacToe>> TicTacToeData::get_games()
 	if (t == 9)  //create unique pointer of tictactoe
 	{
 		board = std::make_unique<TicTacToe3>();
-		get_games().push_back(std::move(board));
+		boards.push_back(std::move(board));
 	}
 	else
 	{
 		board = std::make_unique<TicTacToe4>();
-		get_games().push_back(std::move(board));
+		boards.push_back(std::move(board));
 	}
 
 	file_name.close();  //close the file
 
-	return get_games();  //return the boards vector
+	return boards;  //return the boards vector
 }
 
 
@@ -47,11 +50,10 @@ void TicTacToeData::save_pegs(std::vector<Peg>& pegs)
 	auto s = pegs.size();
 	std::ofstream file_name;
 	file_name.open("tic_tac_toe.dat", std::ios::out |  std::ios::app);
-	std::ofstream file_name;
 
 	for (unsigned i = 0; i < s; i++)
 	{
-		file_name << pegs[i];
+		file_name << pegs[i].val;
 	}
 
 	file_name << "\n";

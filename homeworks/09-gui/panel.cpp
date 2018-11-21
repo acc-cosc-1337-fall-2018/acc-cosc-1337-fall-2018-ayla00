@@ -10,6 +10,18 @@ Panel::Panel(wxWindow* parent)
 {
 	manager = std::make_unique<TManager>();
 
+	auto games = manager->get_games();
+	auto sizegame = games.size();   //maybe use GetCount() to compare vector size to historybox
+
+	for (unsigned j = 0; j < sizegame; j++)
+	{
+		if (games[j] == games[sizegame - 1])
+		{
+			history_list_box->Append("game");
+		}
+	}
+	
+
 	auto vbox = new wxBoxSizer(wxVERTICAL);
 	auto top_horizontal_box = get_top_box_sizer();
 
@@ -277,6 +289,10 @@ void Panel::set_winner_labels()
 {
 	int x, o, c;
 	manager->get_winner_totals(x, o, c);
+	x_winner_label->SetLabel(std::to_string(x));
+	o_winner_label->SetLabel(std::to_string(o));
+	c_winner_label->SetLabel(std::to_string(c));
+
 	//add code here to update winner_label values
 
 	this->Layout();
