@@ -6,6 +6,12 @@
 #include <iostream>
 #include <memory>
 
+
+TManager::TManager()
+{
+	boards = tic_tac_toe_data.get_games();
+}
+
 std::unique_ptr<TicTacToe> TManager::get_game(GameType type)
 {
 	std::unique_ptr<TicTacToe> a;
