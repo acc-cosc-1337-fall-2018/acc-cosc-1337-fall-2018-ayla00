@@ -1,4 +1,4 @@
-#ifndef TIC_TAC_DATA_H
+#ifndef TIC_TAC_TOE_DATA_H
 #define TIC_TAC_TOE_DATA_H
 
 #include <vector>
@@ -14,6 +14,7 @@
 class TicTacToeData
 {
 public:
+	TicTacToeData() = default;
 	std::vector<std::unique_ptr<TicTacToe>> get_games();
 	void save_pegs(std::vector<Peg>& pegs);
 

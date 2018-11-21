@@ -23,20 +23,22 @@ std::vector<std::unique_ptr<TicTacToe>> TicTacToeData::get_games()
 		}
 	}
 
+
+
 	if (t == 9)  //create unique pointer of tictactoe
 	{
-		board = std::make_unique<TicTacToe3>;
-		board->boards.push_back(std::move(board));
+		board = std::make_unique<TicTacToe3>();
+		get_games().push_back(std::move(board));
 	}
 	else
 	{
-		board = std::make_unique<TicTacToe4>;
-		boards.push_back(std::move(board));
+		board = std::make_unique<TicTacToe4>();
+		get_games().push_back(std::move(board));
 	}
 
 	file_name.close();  //close the file
 
-	return boards;  //return the boards vector
+	return get_games();  //return the boards vector
 }
 
 
