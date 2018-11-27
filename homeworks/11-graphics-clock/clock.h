@@ -13,7 +13,7 @@ public:
 	std::string get_time()const;
 	void update_time();
 private:
-	int seconds = 1543273860;
+	int seconds;
 };
 
 #endif // !CLOCK_H

@@ -8,6 +8,7 @@
 #include "point.h"
 #include "line.h"
 #include "text.h"
+#include <string>
 
 class ClockGraphic
 {
