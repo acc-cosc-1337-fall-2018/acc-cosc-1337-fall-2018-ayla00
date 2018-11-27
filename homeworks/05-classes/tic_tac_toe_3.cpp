@@ -1,7 +1,7 @@
 #include "tic_tac_toe_3.h"
-#include "peg.h"
-#include "tic_tac_toe_board.h"
-#include "tic_tac_toe_manager.h"
+//#include "peg.h"
+//#include "tic_tac_toe_board.h"
+//#include "tic_tac_toe_manager.h"
 #include <iostream>
 #include <string>
 #include <vector>
