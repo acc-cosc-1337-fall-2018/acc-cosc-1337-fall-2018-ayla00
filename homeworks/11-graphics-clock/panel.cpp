@@ -24,9 +24,7 @@ Panel::Panel(wxWindow* parent) : wxPanel(parent, -1)
 	
 	timer = new wxTimer();
 	timer->SetOwner(this, -1);
-	//timer->Bind(wxEVT_TIMER, &Panel::OnTimer, this);
-	//timer->Bind(&Panel::OnTimer, this);
-	//timer->Bind(wxEVT_BUTTON, &Panel::OnTimer, this);
+
 }
 
 void Panel::OnStartTimer(wxCommandEvent & event)
@@ -37,7 +35,7 @@ void Panel::OnStartTimer(wxCommandEvent & event)
 
 void Panel::OnTimer(wxTimerEvent & event)
 {
-	//timer->Bind(wxTimerEvent, &Panel::OnTimer, this);
+
 	timer->Bind(wxEVT_TIMER, &Panel::OnTimer, this);
 	clock->draw();
 }
