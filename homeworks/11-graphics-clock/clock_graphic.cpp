@@ -40,7 +40,7 @@ void ClockGraphic::draw_hand(double degrees, int length)
 
 void ClockGraphic::draw_hours_hand()
 {
-	double hours_angle = clock.get_hours() / 12.0 * 360.0;
+	double hours_angle = ((clock.get_hours() / 12.0 * 360.0) + (clock.get_minutes()/2) + 180);
 	device_context->SetPen(wxPen(wxColor(255, 0, 0), 3));
 
 	draw_hand(hours_angle, 45);
